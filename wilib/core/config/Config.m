@@ -10,12 +10,28 @@
 
 @implementation Config
 
-+(NSString*)getConfigValueForKey:(NSString*)key{
++(NSString*)getPlistConfigValueForKey:(NSString*)key{
+    
     NSBundle *bundel = [NSBundle mainBundle];
     
     NSString *configValue = [bundel objectForInfoDictionaryKey:key];
     
     return configValue;
+}
+
++(NSString*)getConfigJsonValueForKey:(NSString*)key{
+    
+    NSString *configName = [Config getPlistConfigValueForKey:@"RC_Config_Name"];
+    
+    NSString *configSubName = [Config getPlistConfigValueForKey:@"RC_Config_SubName"];
+    
+    NSString *path   = [[NSBundle mainBundle] pathForResource:configName ofType:configSubName ];
+    
+    NSString *jsonText = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+
+    NSDictionary *configDict = [Json jsonDecodeWithString:jsonText];
+    
+    return [configDict objectForKey:key];
 }
 
 @end

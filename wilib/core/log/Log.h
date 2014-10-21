@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FileManage.h"
+#import "Config.h"
 
 @interface Log : NSObject
 
+//取代nslog
 +(void)loggerMessage:(NSString*)msg;
 
 @end

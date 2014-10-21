@@ -1,1 +1,6 @@
-{“WebUrl”:”http://google.com.tw”}
+{
+    "LogServerUrl": "http://RC.wistron.asia",
+    "LogSendToServer": false,
+    "LogWriteToFile": false,
+    "ShowDebugLog": true
+}

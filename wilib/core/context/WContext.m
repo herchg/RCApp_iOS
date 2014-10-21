@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "Context.h"
+#import "WContext.h"
 
-@implementation Context
+@implementation WContext
 
 +(NSUserDefaults*)createContext{
     return [NSUserDefaults standardUserDefaults];
@@ -19,43 +19,43 @@
 }
 
 +(void)setObject:(NSString*)key withObject:(id)data{
-    NSUserDefaults *userDefaulf = [Context createContext];
+    NSUserDefaults *userDefaulf = [WContext createContext];
 
     [userDefaulf setObject:data forKey:key];
     
-    [Context syncContext:userDefaulf];
+    [WContext syncContext:userDefaulf];
 }
 
 +(void)setBool:(NSString*)key withBool:(BOOL)data{
-    NSUserDefaults *userDefaulf = [Context createContext];
+    NSUserDefaults *userDefaulf = [WContext createContext];
     
     [userDefaulf setBool:data forKey:key];
     
-    [Context syncContext:userDefaulf];
+    [WContext syncContext:userDefaulf];
 }
 
 +(void)setIntegert:(NSString*)key withInteger:(int)data{
-    NSUserDefaults *userDefaulf = [Context createContext];
+    NSUserDefaults *userDefaulf = [WContext createContext];
     
     [userDefaulf setInteger:data forKey:key];
     
-    [Context syncContext:userDefaulf];
+    [WContext syncContext:userDefaulf];
 }
 
 +(NSString*)getStringForKey:(NSString*)key{
-    return [[Context createContext] stringForKey:key];
+    return [[WContext createContext] stringForKey:key];
 }
 
 +(NSArray*)getArrayForKey:(NSString*)key{
-    return [[Context createContext] arrayForKey:key];
+    return [[WContext createContext] arrayForKey:key];
 }
 
 +(BOOL)getBoolForKey:(NSString*)key{
-    return [[Context createContext] boolForKey:key];
+    return [[WContext createContext] boolForKey:key];
 }
 
 +(int)getIntegerForKey:(NSString*)key{
-    return (int)[[Context createContext] integerForKey:key];
+    return (int)[[WContext createContext] integerForKey:key];
 }
 
 @end

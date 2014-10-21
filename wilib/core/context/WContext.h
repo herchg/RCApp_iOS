@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Context : NSObject
+@interface WContext : NSObject
 
 +(NSUserDefaults*)createContext;
 

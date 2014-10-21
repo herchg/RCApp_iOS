@@ -6,20 +6,15 @@
 //  Copyright (c) 2014年 User. All rights reserved.
 //
 #import "Log.h"
-#import "FileManage.h"
-
-BOOL M_SHOW_DEBUG_LOG = YES;
-BOOL M_WRITE_LOG_TO_FILE = YES;
-
 
 @implementation Log
 
 +(void)loggerMessage:(NSString*)msg{
-    if(M_SHOW_DEBUG_LOG){
+    if([Config getConfigJsonValueForKey:@"ShowDebugLog"]){
         NSLog(@"%@",msg);
     }
     
-    if(M_WRITE_LOG_TO_FILE){
+    if([Config getConfigJsonValueForKey:@"LogWriteToFile"]){
         NSString *logFileFolder = @"/log";
         if([FileManage createFolder:logFileFolder]){
             NSString *logFileName = [NSString stringWithFormat:@"%@%@",logFileFolder,@"/log.txt"];

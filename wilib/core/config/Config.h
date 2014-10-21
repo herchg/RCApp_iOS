@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Json.h"
 
 @interface Config : NSObject
 
-+(NSString*)getConfigValueForKey:(NSString*)key;
+//讀取plist的設定內容
++(NSString*)getPlistConfigValueForKey:(NSString*)key;
+
+//讀取resource內config.json的內容
++(NSString*)getConfigJsonValueForKey:(NSString*)key;
 
 @end
