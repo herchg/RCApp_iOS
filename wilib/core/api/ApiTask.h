@@ -1,25 +1,25 @@
 //
-//  dataService.h
+//  ApiTask.h
 //  RCApp_IOS
 //
-//  Created by Samuel on 2014/10/22.
+//  Created by Samuel on 2014/10/23.
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Log.h"
-#import "Config.h"
-#import "Api.h"
-#import "Db.h"
+#import "HttpTask.h"
 
-/*負責所有的資料處理*/
+@interface ApiTask : NSObject <HttpTask>
 
-@interface DataService : NSObject
+-(void)setApiUrl:(NSString*)url;
+
+-(void)setApiMethod:(NSString*)method;
+
+-(void)setApiParams:(NSDictionary*)params;
 
 -(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock;
 
 -(void)setCallbackToMainThread:(BOOL)val;
-
--(void)testDataService;
+    
 
 @end

@@ -21,6 +21,14 @@
     return img;
 }
 
++(UIImage*)getAnimatedImageFromName:(NSString*)imgName {
+    
+    UIImage *img = [UIImage animatedImageNamed:imgName duration:1.0f];
+    
+    return img;
+}
+
+
 
 +(UIImage*)getImageFromName:(NSString*)imgName {
     

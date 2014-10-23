@@ -7,44 +7,51 @@
 //
 
 #import "Db.h"
-#import "FMDatabase.h"
-
-NSString *m_dbName= @"";
-
-FMDatabase *m_db;
 
 @implementation Db
 
-//set DB name. like rc.db
--(void)initWithDbName:(NSString*)dbName{
-    m_dbName = dbName;
-}
 
 //connect DB
--(void)startConnectDB{
+-(FMDatabase*)startConnectDB {
+    
+    NSString *dbName = [Config getConfigJsonValueForKey:@"SqliteDatabaseName"];
+    
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
     NSString *documentDirctory = [path objectAtIndex:0];
-    NSString *dbPath = [documentDirctory stringByAppendingPathComponent:m_dbName];
-    m_db = [FMDatabase databaseWithPath:dbPath];
-    if(![m_db open]){
-        NSLog(@"db Error");
+    
+    NSString *dbPath = [documentDirctory stringByAppendingPathComponent:dbName];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+
+    if(![db open]){
+        [Log loggerMessage:@"Database can't open"];
+        db = nil;
     }
+    
+    return db;
 }
 
 //query table
--(NSDictionary*)queryTableData:(NSString*)queryString{
-    NSDictionary *queryDict;
-    FMResultSet *rs = [m_db executeQuery:queryString];
-    while ([rs next]) {
-        /*
-        int sid = [rs stringForColumn:@"id"];
-        NSString *sname = [rs stringForColumn:@"name"];
-        NSLog(@"id=%d name=%@",sid,sname);
-         */
-    }
-    [rs close];
+-(NSDictionary*)doQuery:(NSString*)queryString {
     
-    return queryDict;
+    FMDatabase *db = [self startConnectDB];
+    
+    NSDictionary *queryResultDict;
+    
+    if(db != nil){
+        FMResultSet *rs = [db executeQuery:queryString];
+        while ([rs next]) {
+            queryResultDict = [rs resultDictionary];
+            break;
+        }
+
+        [rs close];
+
+        [db close];
+    }
+    
+    return queryResultDict;
 }
 
 @end

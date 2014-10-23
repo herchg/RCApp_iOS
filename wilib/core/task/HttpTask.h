@@ -12,6 +12,12 @@
 
 @required
 
+-(NSString*)getApiMethod;
+
+-(NSString*)getApiUrl;
+
+-(NSDictionary*)getApiParams;
+
 //task後續處理
 -(void)doCallback:(NSDictionary*)result;
 

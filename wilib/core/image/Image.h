@@ -17,4 +17,6 @@
 
 +(NSString*)getImageTypeFromData:(NSData*)imgData;
 
++(UIImage*)getAnimatedImageFromName:(NSString*)imgName;
+
 @end

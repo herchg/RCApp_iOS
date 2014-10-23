@@ -11,22 +11,34 @@
 
 +(void)loggerMessage:(NSString*)msg {
     
+    //是否顯示ＬＯＧ
     if([Config getConfigJsonValueForKey:@"ShowDebugLog"]){
     
         NSLog(@"%@",msg);
     
     }
     
+    //是否把ＬＯＧ寫入檔案
     if([Config getConfigJsonValueForKey:@"LogWriteToFile"]){
-    
-        NSString *logFileFolder = @"/log";
         
+        NSString *logFileFolder = [Config getConfigJsonValueForKey:@"LogFileFolder"];
+    
+        NSString *logFileName = [Config getConfigJsonValueForKey:@"LogFileName"];
+
         if([FileManage createFolder:logFileFolder]){
         
-            NSString *logFileName = [NSString stringWithFormat:@"%@%@",logFileFolder,@"/log.txt"];
+            NSString *logFilePath = [NSString stringWithFormat:@"%@/%@",logFileFolder,logFileName];
             
-            [FileManage saveFileFromString:logFileName withString:msg];
+            [FileManage saveFileFromString:logFilePath withString:msg];
         }
+    }
+    
+    //是否把ＬＯＧ傳到server
+    if([Config getConfigJsonValueForKey:@"LogSendToServer"]){
+        
+        Api *logApi = [[Api alloc] init];
+        
+        [logApi sendLogToServer:@{@"log":msg}];
     }
 }
 

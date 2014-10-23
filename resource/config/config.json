@@ -1,7 +1,10 @@
 {
     "AddOrderApiUrl": "http://60.199.195.25/test.php",
-    "LogServerUrl": "http://RC.wistron.asia",
+    "SqliteDatabaseName":"rc.db",
+    "ShowDebugLog": true,
+    "LogFileFolder": "/log",
+    "LogFileName": "log.txt",
+    "LogServerUrl": "http://60.199.195.25/test.php",
     "LogSendToServer": false,
-    "LogWriteToFile": false,
-    "ShowDebugLog": true
+    "LogWriteToFile": false
 }

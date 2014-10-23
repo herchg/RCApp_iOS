@@ -12,12 +12,20 @@
 #import "Log.h"
 #import "Config.h"
 #import "HttpTaskManager.h"
-#import "HttpTask.h"
+#import "ApiTask.h"
 
-@interface Api : NSObject <HttpTask>
 
+@interface Api : NSObject
+
+//設定callback
 -(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock;
 
+-(void)setCallbackToMainThread:(BOOL)val;
+
+//test
 -(void)testApi:(NSDictionary*)data;
+
+//發送log訊息到server
+-(void)sendLogToServer:(NSDictionary*)data;
 
 @end

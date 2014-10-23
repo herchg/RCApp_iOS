@@ -10,4 +10,8 @@
 
 @interface CacheManager : NSObject
 
+-(void)writeCacheData:(NSString*)key withData:(NSDictionary*)data;
+
+-(NSDictionary*)getCacheData:(NSString*)key;
+
 @end

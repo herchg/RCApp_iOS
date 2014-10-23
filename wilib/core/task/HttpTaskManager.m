@@ -10,123 +10,134 @@
 
 @implementation HttpTaskManager
 
++(AFHTTPRequestOperationManager *)createNetworkManager{
 
-+(void)executeHttpTaskGet:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task {
-    
-     AFHTTPRequestOperationManager *networkManager = [AFHTTPRequestOperationManager manager];
- 
-     [networkManager GET:apiUrl parameters :params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         
-         NSDictionary *successResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],@"result",responseObject,@"data", nil];
-         
-         if([task callbackToMainThread]){
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 [task doCallback:successResult];
-             });
-         }else{
-             [task doCallback:successResult];
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         
-         NSDictionary *errorResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"result",error,@"error", nil];
-         
-         if([task callbackToMainThread]){
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 [task doCallback:errorResult];
-             });
-         }else{
-             [task doCallback:errorResult];
-         }
-     }];
-}
-
-+(void)executeHttpTaskPost:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task {
-    
     AFHTTPRequestOperationManager *networkManager = [AFHTTPRequestOperationManager manager];
     
-    [networkManager POST:apiUrl parameters :params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *successResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],@"result",responseObject,@"data", nil];
-        
-        if([task callbackToMainThread]){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [task doCallback:successResult];
-            });
-        }else{
-            [task doCallback:successResult];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSDictionary *errorResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"result",error,@"error", nil];
-        
-        if([task callbackToMainThread]){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [task doCallback:errorResult];
-            });
-        }else{
-            [task doCallback:errorResult];
-        }
-    }];
+    [networkManager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
+    //timeout設定
+    [networkManager.requestSerializer setTimeoutInterval:15];
+    
+    return networkManager;
 }
 
-+(void)executeHttpTaskPut:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task {
+//GET
++(void)executeHttpTask:(id<HttpTask>)task {
     
-    AFHTTPRequestOperationManager *networkManager = [AFHTTPRequestOperationManager manager];
+    NSArray *methodList = @[@"GET", @"POST", @"PUT",@"DELETE"];
     
-    [networkManager PUT:apiUrl parameters :params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *successResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],@"result",responseObject,@"data", nil];
-        
-        if([task callbackToMainThread]){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [task doCallback:successResult];
-            });
-        }else{
-            [task doCallback:successResult];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSDictionary *errorResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"result",error,@"error", nil];
-        
-        if([task callbackToMainThread]){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [task doCallback:errorResult];
-            });
-        }else{
-            [task doCallback:errorResult];
-        }
-    }];
-}
-
-+(void)executeHttpTaskDelete:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task {
+    int method = [methodList indexOfObject:[task getApiMethod]];
     
-    AFHTTPRequestOperationManager *networkManager = [AFHTTPRequestOperationManager manager];
-    
-    [networkManager DELETE:apiUrl parameters :params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *successResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],@"result",responseObject,@"data", nil];
-        
-        if([task callbackToMainThread]){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [task doCallback:successResult];
-            });
-        }else{
-            [task doCallback:successResult];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSDictionary *errorResult = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"result",error,@"error", nil];
-        
-        if([task callbackToMainThread]){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [task doCallback:errorResult];
-            });
-        }else{
-            [task doCallback:errorResult];
-        }
-    }];
+    switch (method) {
+        case 0:
+            // GET
+            [HttpTaskManager startGet:task];
+            break;
+        case 1:
+            // POST
+            [HttpTaskManager startPost:task];
+            break;
+        case 2:
+            // PUT
+            [HttpTaskManager startPut:task];
+            break;
+        case 3:
+            // DELETE
+            [HttpTaskManager startDelete:task];
+            break;
+        default:
+            break;
+    }
 }
 
 
++(void)startGet:(id<HttpTask>)task {
+    
+    AFHTTPRequestOperationManager *networkManager = [HttpTaskManager createNetworkManager];
+    
+    [networkManager GET:[task getApiUrl] parameters :[task getApiParams]
+                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
+                    [HttpTaskManager taskComplite:task withResult:YES withData:responseObject];
+                }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     
+                    [HttpTaskManager taskComplite:task withResult:NO withData:error];
+                }];
+}
+
+
++(void)startPost:(id<HttpTask>)task {
+    
+    AFHTTPRequestOperationManager *networkManager = [HttpTaskManager createNetworkManager];
+    
+    [networkManager POST:[task getApiUrl] parameters :[task getApiParams]
+                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
+                    [HttpTaskManager taskComplite:task withResult:YES withData:responseObject];
+                }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    
+                    [HttpTaskManager taskComplite:task withResult:NO withData:error];
+                }];
+}
+
+
++(void)startPut:(id<HttpTask>)task {
+    
+    AFHTTPRequestOperationManager *networkManager = [HttpTaskManager createNetworkManager];
+    
+    [networkManager PUT:[task getApiUrl] parameters :[task getApiParams]
+                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
+                    [HttpTaskManager taskComplite:task withResult:YES withData:responseObject];
+                }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    
+                    [HttpTaskManager taskComplite:task withResult:NO withData:error];
+                }];
+}
+
+
++(void)startDelete:(id<HttpTask>)task {
+    
+    AFHTTPRequestOperationManager *networkManager = [HttpTaskManager createNetworkManager];
+    
+    [networkManager DELETE:[task getApiUrl] parameters :[task getApiParams]
+                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
+                    [HttpTaskManager taskComplite:task withResult:YES withData:responseObject];
+                }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    
+                    [HttpTaskManager taskComplite:task withResult:NO withData:error];
+                }];
+}
+
+
++(void)taskComplite:(id<HttpTask>)task withResult:(BOOL)result withData:(id)data {
+
+    NSDictionary *resultDict;
+    
+    if(result){
+        
+        resultDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],@"result",data,@"data", nil];
+    }else{
+        
+        resultDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"result",data,@"error", nil];
+    }
+    
+    
+    if([task callbackToMainThread]){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [task doCallback:resultDict];
+        });
+    }else{
+        
+        [task doCallback:resultDict];
+    }
+}
 
 @end

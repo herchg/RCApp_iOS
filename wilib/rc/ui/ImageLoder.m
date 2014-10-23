@@ -39,7 +39,7 @@
 }
 
 -(void)doTask{
-    NSLog(@"do task");
+
     m_ContentImage = [Image getImageFromUrl:m_ImageUrl];
 }
 

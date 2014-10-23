@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FMDatabase.h"
+#import "Log.h"
+#import "Config.h"
 
 @interface Db : NSObject
 
--(void)initWithDbName:(NSString*)dbName;
-
--(void)startConnectDB;
+-(NSDictionary*)doQuery:(NSString*)queryString;
 
 @end

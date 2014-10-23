@@ -12,6 +12,8 @@
 #import "Log.h"
 #import "DataService.h"
 #import "ImageLoder.h"
+#import "NetworkTool.h"
+#import "UiTool.h"
 
 @interface RootViewController ()
 
@@ -45,9 +47,26 @@
 }
 
 - (IBAction)clickButton:(id)sender {
+
+    UIImageView *loadingView = [UiTool createLoadingImageView];
+    
+    [self.view addSubview:loadingView];
+    
+    //取消使用者的手勢/touch事件 不能點擊任何按鈕
+    [self.view setUserInteractionEnabled:NO];
     
     DataService *mydataService = [[DataService alloc] init];
+    [mydataService setCallbackToMainThread:NO];
+    [mydataService setCallbackBlock:^(NSDictionary *data) {
+        NSLog(@"get data:%@",data);
+        
+        [loadingView removeFromSuperview];
+        
+        //還原使用者的手勢/touch事件
+        [self.view setUserInteractionEnabled:YES];
+    }];
     [mydataService testDataService];
+    
     
     /*
     DataService *mydata = [[DataService alloc] init];
@@ -58,10 +77,12 @@
   
    */
     
+    /*
     ImageLoder *myTask = [[ImageLoder alloc] init];
     [myTask setTargetImageView:_imageView withDefaultImage:@"p3.png"];
     [myTask setImageUrl:@"http://cg2010studio.files.wordpress.com/2011/12/mrt.png"];
     [myTask startLoadingImage];
+     */
 }
 
 

@@ -13,12 +13,6 @@
 
 @interface HttpTaskManager : NSObject
 
-+(void)executeHttpTaskGet:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task;
-
-+(void)executeHttpTaskPost:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task;
-
-+(void)executeHttpTaskPut:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task;
-
-+(void)executeHttpTaskDelete:(NSString*)apiUrl withParams:(NSDictionary*)params withTask:(id<HttpTask>)task;
++(void)executeHttpTask:(id<HttpTask>)task;
 
 @end

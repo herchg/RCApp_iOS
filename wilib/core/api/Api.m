@@ -9,39 +9,75 @@
 #import "Api.h"
 
 @implementation Api{
-    
+
     //外部設定的callback block
-    void (^_callbackBlock)(NSDictionary* resultData);
-}
-
--(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock{
-    _callbackBlock = callbackBlock;
-}
-
--(void)testApi:(NSDictionary*)data{
+    void (^mCallbackBlock)(NSDictionary* resultData);
     
-    [HttpTaskManager executeHttpTaskPost:[Config getConfigJsonValueForKey:@"AddOrderApiUrl"] withParams:data withTask:self];
+    BOOL mCallbackToMainThread;
 }
 
-/*-----------以下為HttpTask protocal必須實做的method-----------------*/
-
-/*
- 若成功
- result['result'] = 1
- result['data'] = NSDictionary物件
- 
- 若失敗
- result['result'] = 0
- result['error'] = NSERROR物件
- */
--(void)doCallback:(NSDictionary*)result{
+-(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock {
     
-    _callbackBlock(result);
+    mCallbackBlock = callbackBlock;
 }
 
-//callback是否返回到main thread 若需要對UI進行更新則return YES
--(BOOL)callbackToMainThread{
-    return YES;
+-(void)setCallbackToMainThread:(BOOL)val {
+    
+    mCallbackToMainThread = val;
+}
+
+-(void)apiComplite:(NSDictionary*)data {
+
+    if(mCallbackBlock){
+        mCallbackBlock(data);
+    }
+}
+
+-(ApiTask*)createApiTask {
+
+    return [[ApiTask alloc] init];
+}
+
+//test
+-(void)testApi:(NSDictionary*)data {
+    
+    ApiTask *myTask = [self createApiTask];
+    
+    [myTask setApiUrl:[Config getConfigJsonValueForKey:@"LogServerUrl"]];
+    
+    [myTask setApiMethod:@"GET"];
+    
+    [myTask setApiParams:data];
+    
+    [myTask setCallbackToMainThread:YES];
+    
+    [myTask setCallbackBlock:^(NSDictionary *data) {
+        
+        [self apiComplite:data];
+    }];
+    
+    [HttpTaskManager executeHttpTask:myTask];
+}
+
+//發送LOG至server
+-(void)sendLogToServer:(NSDictionary*)data {
+    
+    ApiTask *myTask = [self createApiTask];
+    
+    [myTask setApiUrl:[Config getConfigJsonValueForKey:@"LogServerUrl"]];
+    
+    [myTask setApiMethod:@"POST"];
+    
+    [myTask setApiParams:data];
+    
+    //[myTask setCallbackToMainThread:YES];
+    
+    [myTask setCallbackBlock:^(NSDictionary *data) {
+        
+        [self apiComplite:data];
+    }];
+    
+    [HttpTaskManager executeHttpTask:myTask];
 }
 
 @end

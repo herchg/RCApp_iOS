@@ -10,4 +10,14 @@
 
 @implementation CacheManager
 
+-(void)writeCacheData:(NSString*)key withData:(NSDictionary*)data {
+
+
+}
+
+-(NSDictionary*)getCacheData:(NSString*)key {
+
+    return nil;
+}
+
 @end
