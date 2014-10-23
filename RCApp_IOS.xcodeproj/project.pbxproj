@@ -10,6 +10,7 @@
 		7E0FFF5219F896D0007F322A /* HttpTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF4E19F896D0007F322A /* HttpTaskManager.m */; };
 		7E0FFF5319F896D0007F322A /* TaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5119F896D0007F322A /* TaskManager.m */; };
 		7E0FFF5719F89BE5007F322A /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5619F89BE5007F322A /* Api.m */; };
+		7E0FFF5B19F8A2DA007F322A /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5A19F8A2DA007F322A /* CacheManager.m */; };
 		7E13F84319EF6B6100F347DF /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E13F83619EF6B6100F347DF /* config.json */; };
 		7E13F84419EF6B6100F347DF /* rc.db in Resources */ = {isa = PBXBuildFile; fileRef = 7E13F83819EF6B6100F347DF /* rc.db */; };
 		7E13F84519EF6B6100F347DF /* p1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7E13F83A19EF6B6100F347DF /* p1.jpeg */; };
@@ -82,6 +83,8 @@
 		7E0FFF5119F896D0007F322A /* TaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskManager.m; sourceTree = "<group>"; };
 		7E0FFF5519F89BE5007F322A /* Api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		7E0FFF5619F89BE5007F322A /* Api.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.m; sourceTree = "<group>"; };
+		7E0FFF5919F8A2DA007F322A /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
+		7E0FFF5A19F8A2DA007F322A /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
 		7E13F83619EF6B6100F347DF /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		7E13F83819EF6B6100F347DF /* rc.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = rc.db; sourceTree = "<group>"; };
 		7E13F83A19EF6B6100F347DF /* p1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p1.jpeg; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 		7E0FFF5819F8A1AD007F322A /* cache */ = {
 			isa = PBXGroup;
 			children = (
+				7E0FFF5919F8A2DA007F322A /* CacheManager.h */,
+				7E0FFF5A19F8A2DA007F322A /* CacheManager.m */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -677,6 +682,7 @@
 				7E1BBC7C19EE417200184499 /* Reachability.m in Sources */,
 				7E1BBC7319EE417200184499 /* AFHTTPRequestOperation.m in Sources */,
 				7E964BB919ED22A3009FC8C9 /* AppDelegate.m in Sources */,
+				7E0FFF5B19F8A2DA007F322A /* CacheManager.m in Sources */,
 				7E1BBC7D19EE417200184499 /* FMDatabase.m in Sources */,
 				7E1BBC7419EE417200184499 /* AFHTTPRequestOperationManager.m in Sources */,
 				7E1BBC9319EE417200184499 /* Json.m in Sources */,
