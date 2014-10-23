@@ -33,7 +33,7 @@
     */
 
     
-    Api *testApi = [[Api alloc] init];
+    ApiManager *testApi = [[ApiManager alloc] init];
     [testApi setCallbackToMainThread:mCallbackToMainThread];
     [testApi setCallbackBlock:^(NSDictionary *data) {
         if(mCallbackBlock){

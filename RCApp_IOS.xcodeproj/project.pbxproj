@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E0FFF5219F896D0007F322A /* HttpTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF4E19F896D0007F322A /* HttpTaskManager.m */; };
 		7E0FFF5319F896D0007F322A /* TaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5119F896D0007F322A /* TaskManager.m */; };
-		7E0FFF5719F89BE5007F322A /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5619F89BE5007F322A /* Api.m */; };
+		7E0FFF5719F89BE5007F322A /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5619F89BE5007F322A /* ApiManager.m */; };
 		7E0FFF5B19F8A2DA007F322A /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5A19F8A2DA007F322A /* CacheManager.m */; };
 		7E0FFF5E19F8ADB0007F322A /* rc.db in Resources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5D19F8ADB0007F322A /* rc.db */; };
 		7E0FFF6219F8CB7E007F322A /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF6119F8CB7E007F322A /* NetworkTool.m */; };
@@ -96,8 +96,8 @@
 		7E0FFF4F19F896D0007F322A /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		7E0FFF5019F896D0007F322A /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
 		7E0FFF5119F896D0007F322A /* TaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskManager.m; sourceTree = "<group>"; };
-		7E0FFF5519F89BE5007F322A /* Api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
-		7E0FFF5619F89BE5007F322A /* Api.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.m; sourceTree = "<group>"; };
+		7E0FFF5519F89BE5007F322A /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
+		7E0FFF5619F89BE5007F322A /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
 		7E0FFF5919F8A2DA007F322A /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
 		7E0FFF5A19F8A2DA007F322A /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
 		7E0FFF5D19F8ADB0007F322A /* rc.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = rc.db; sourceTree = "<group>"; };
@@ -247,8 +247,8 @@
 		7E0FFF5419F89BD6007F322A /* api */ = {
 			isa = PBXGroup;
 			children = (
-				7E0FFF5519F89BE5007F322A /* Api.h */,
-				7E0FFF5619F89BE5007F322A /* Api.m */,
+				7E0FFF5519F89BE5007F322A /* ApiManager.h */,
+				7E0FFF5619F89BE5007F322A /* ApiManager.m */,
 				7EEEEEB419F8F0510033255D /* ApiTask.h */,
 				7EEEEEB519F8F0510033255D /* ApiTask.m */,
 			);
@@ -768,7 +768,7 @@
 				7ECA89CA19F74D3C007418BF /* DataService.m in Sources */,
 				7ECA89CE19F77CED007418BF /* ImageLoder.m in Sources */,
 				7E1BBC8119EE417200184499 /* FMResultSet.m in Sources */,
-				7E0FFF5719F89BE5007F322A /* Api.m in Sources */,
+				7E0FFF5719F89BE5007F322A /* ApiManager.m in Sources */,
 				7E1BBC7A19EE417200184499 /* AFURLResponseSerialization.m in Sources */,
 				7E1BBC9819EE419500184499 /* WContext.m in Sources */,
 				7E1BBC7819EE417200184499 /* AFURLConnectionOperation.m in Sources */,

@@ -15,7 +15,7 @@
 #import "ApiTask.h"
 
 
-@interface Api : NSObject
+@interface ApiManager : NSObject
 
 //設定callback
 -(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock;

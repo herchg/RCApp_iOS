@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "Api.h"
+#import "ApiManager.h"
 
-@implementation Api{
+@implementation ApiManager{
 
     //外部設定的callback block
     void (^mCallbackBlock)(NSDictionary* resultData);
