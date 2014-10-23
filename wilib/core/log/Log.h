@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "FileManage.h"
 #import "Config.h"
-#import "ApiManager.h"
 
 @interface Log : NSObject
 

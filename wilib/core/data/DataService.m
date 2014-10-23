@@ -32,16 +32,13 @@
     NSLog(@"data:%@",queryData);
     */
 
-    
-    ApiManager *testApi = [[ApiManager alloc] init];
-    [testApi setCallbackToMainThread:mCallbackToMainThread];
-    [testApi setCallbackBlock:^(NSDictionary *data) {
+    RCApi *myApi = [[RCApi alloc] init];
+    [myApi sendLogToServer:nil withCallback:^(NSDictionary *resultData) {
+        
         if(mCallbackBlock){
-            mCallbackBlock(data);
+            mCallbackBlock(resultData);
         }
     }];
-    
-    [testApi testApi:nil];
 }
 
 @end

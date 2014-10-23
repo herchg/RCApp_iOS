@@ -35,10 +35,7 @@
     
     //是否把ＬＯＧ傳到server
     if([Config getConfigJsonValueForKey:@"LogSendToServer"]){
-        
-        ApiManager *logApi = [[ApiManager alloc] init];
-        
-        [logApi sendLogToServer:@{@"log":msg}];
+ 
     }
 }
 
