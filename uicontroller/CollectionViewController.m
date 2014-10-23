@@ -7,10 +7,12 @@
 //
 
 #import "CollectionViewController.h"
+#import "WImageTask.h"
 
 @interface CollectionViewController (){
 
     NSArray * _contacts;
+    
 }
 
 @end
@@ -24,13 +26,14 @@
     
     //建立一個連絡人陣列物件，並存放於_contacts變數中
     _contacts = [[NSArray alloc] initWithObjects:
-                 @"p1.png"
-                 , @"p2.png"
-                 , @"p3.png"
-                 , @"p4.png"
-                 , @"p5.png"
-                 , @"p6.png"
+                 @"http://cg2010studio.files.wordpress.com/2011/12/mrt.png"
+                 , @"http://p2.bahamut.com.tw/S/2KU/91/0001080491.JPG"
+                 , @"http://p2.bahamut.com.tw/S/2KU/83/0001080483.JPG"
+                 , @"http://p2.bahamut.com.tw/S/2KU/72/0001080172.JPG"
+                 , @"http://p2.bahamut.com.tw/S/2KU/54/0001080154.JPG"
+                 , @"http://p2.bahamut.com.tw/S/2KU/12/0001080112.JPG"
                  , nil];
+
     
     
     //將實作UICollectionViewDataSource的ViewController(self),
@@ -47,6 +50,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+
+
+/*-----------以下為UICollectionViewDataSource必須實做的method-----------------*/
 //UICollectionViewDataSource上的方法，
 //用以表示有多少資料，
 //在此回傳_contacts陣列的個數
@@ -73,10 +81,7 @@
     
     UILabel * label = (UILabel*)[cell viewWithTag:100];
     [label setText:indexString];
-    
-    UIImageView *imageView = (UIImageView*)[cell viewWithTag:101];
-    [imageView setImage:[UIImage imageNamed:indexString]];
-    
+
     //設cell的背景色為blue
     //[cell setBackgroundColor:[UIColor blueColor]];
     

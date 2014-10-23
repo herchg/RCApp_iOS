@@ -13,11 +13,9 @@
 @required
 
 //開始執行task,實作的method需return成功or失敗
--(BOOL)doTask;
-//task成功的後續處理
--(void)onSuccess:(NSString*)taskName;
-//task失敗的後續處理
--(void)onFail:(NSString*)taskName;
+-(void)doTask;
+//task後續處理
+-(void)doCallback;
 //callback是否返回到main thread 若需要對UI進行更新則return YES
 -(BOOL)callbackToMainThread;
 

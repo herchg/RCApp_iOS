@@ -12,4 +12,5 @@
 @interface CollectionViewController : UIViewController <UICollectionViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end

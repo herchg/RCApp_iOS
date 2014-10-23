@@ -21,7 +21,7 @@
 
 
 +(UIImage*)getImageFromName:(NSString*)imgName{
-    UIImage *img = [[UIImage alloc] initWithContentsOfFile:imgName];
+    UIImage *img = [UIImage imageNamed:imgName];
     
     return img;
 }

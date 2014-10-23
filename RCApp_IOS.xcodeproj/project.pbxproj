@@ -46,7 +46,6 @@
 		7E1BBC9219EE417200184499 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC6819EE417200184499 /* Image.m */; };
 		7E1BBC9319EE417200184499 /* Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC6B19EE417200184499 /* Json.m */; };
 		7E1BBC9419EE417200184499 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC6E19EE417200184499 /* Log.m */; };
-		7E1BBC9519EE417200184499 /* WApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC7219EE417200184499 /* WApi.m */; };
 		7E1BBC9819EE419500184499 /* WContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC9719EE419500184499 /* WContext.m */; };
 		7E964BB619ED22A3009FC8C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E964BB519ED22A3009FC8C9 /* main.m */; };
 		7E964BB919ED22A3009FC8C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E964BB819ED22A3009FC8C9 /* AppDelegate.m */; };
@@ -58,6 +57,9 @@
 		7E964C6219ED230A009FC8C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E964C6119ED230A009FC8C9 /* CFNetwork.framework */; };
 		7E964C6419ED2310009FC8C9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E964C6319ED2310009FC8C9 /* libsqlite3.0.dylib */; };
 		7E964C6619ED2323009FC8C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E964C6519ED2323009FC8C9 /* SystemConfiguration.framework */; };
+		7ECA89CA19F74D3C007418BF /* DataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA89C919F74D3C007418BF /* DataService.m */; };
+		7ECA89CE19F77CED007418BF /* WImageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA89CD19F77CED007418BF /* WImageTask.m */; };
+		7ECA89D319F79892007418BF /* WApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA89D219F79892007418BF /* WApi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,8 +144,6 @@
 		7E1BBC6B19EE417200184499 /* Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Json.m; sourceTree = "<group>"; };
 		7E1BBC6D19EE417200184499 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		7E1BBC6E19EE417200184499 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
-		7E1BBC7119EE417200184499 /* WApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WApi.h; sourceTree = "<group>"; };
-		7E1BBC7219EE417200184499 /* WApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WApi.m; sourceTree = "<group>"; };
 		7E1BBC9619EE419500184499 /* WContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WContext.h; sourceTree = "<group>"; };
 		7E1BBC9719EE419500184499 /* WContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WContext.m; sourceTree = "<group>"; };
 		7E964BB019ED22A3009FC8C9 /* RCApp_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCApp_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +161,12 @@
 		7E964C6119ED230A009FC8C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7E964C6319ED2310009FC8C9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		7E964C6519ED2323009FC8C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		7ECA89C619F657F2007418BF /* WApiTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WApiTask.h; sourceTree = "<group>"; };
+		7ECA89C819F74D3C007418BF /* DataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataService.h; sourceTree = "<group>"; };
+		7ECA89C919F74D3C007418BF /* DataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataService.m; sourceTree = "<group>"; };
+		7ECA89CC19F77CED007418BF /* WImageTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WImageTask.h; sourceTree = "<group>"; };
+		7ECA89CD19F77CED007418BF /* WImageTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WImageTask.m; sourceTree = "<group>"; };
+		7ECA89D119F79892007418BF /* WApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WApi.h; sourceTree = "<group>"; };
+		7ECA89D219F79892007418BF /* WApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +368,7 @@
 		7E1BBC5B19EE417200184499 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				7ECA89C719F74D2A007418BF /* data */,
 				7E13F88C19F0EA2000F347DF /* async */,
 				7E1BBC5C19EE417200184499 /* config */,
 				7E1BBC5F19EE417200184499 /* context */,
@@ -441,19 +447,10 @@
 		7E1BBC6F19EE417200184499 /* rc */ = {
 			isa = PBXGroup;
 			children = (
-				7E1BBC7019EE417200184499 /* api */,
+				7ECA89D019F79886007418BF /* api */,
+				7ECA89CB19F77CD4007418BF /* ui */,
 			);
 			path = rc;
-			sourceTree = "<group>";
-		};
-		7E1BBC7019EE417200184499 /* api */ = {
-			isa = PBXGroup;
-			children = (
-				7ECA89C619F657F2007418BF /* WApiTask.h */,
-				7E1BBC7119EE417200184499 /* WApi.h */,
-				7E1BBC7219EE417200184499 /* WApi.m */,
-			);
-			path = api;
 			sourceTree = "<group>";
 		};
 		7E964BA719ED22A3009FC8C9 = {
@@ -521,6 +518,33 @@
 				7E964BD119ED22A3009FC8C9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7ECA89C719F74D2A007418BF /* data */ = {
+			isa = PBXGroup;
+			children = (
+				7ECA89C819F74D3C007418BF /* DataService.h */,
+				7ECA89C919F74D3C007418BF /* DataService.m */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		7ECA89CB19F77CD4007418BF /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				7ECA89CC19F77CED007418BF /* WImageTask.h */,
+				7ECA89CD19F77CED007418BF /* WImageTask.m */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		7ECA89D019F79886007418BF /* api */ = {
+			isa = PBXGroup;
+			children = (
+				7ECA89D119F79892007418BF /* WApi.h */,
+				7ECA89D219F79892007418BF /* WApi.m */,
+			);
+			path = api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,14 +669,16 @@
 				7E1BBC7619EE417200184499 /* AFNetworkReachabilityManager.m in Sources */,
 				7E1BBC8F19EE417200184499 /* Config.m in Sources */,
 				7E1BBC9119EE417200184499 /* FileManage.m in Sources */,
+				7ECA89CA19F74D3C007418BF /* DataService.m in Sources */,
+				7ECA89CE19F77CED007418BF /* WImageTask.m in Sources */,
 				7E1BBC8119EE417200184499 /* FMResultSet.m in Sources */,
 				7E1BBC7A19EE417200184499 /* AFURLResponseSerialization.m in Sources */,
 				7E1BBC9819EE419500184499 /* WContext.m in Sources */,
+				7ECA89D319F79892007418BF /* WApi.m in Sources */,
 				7E1BBC7819EE417200184499 /* AFURLConnectionOperation.m in Sources */,
 				7E13F88819EFC1D000F347DF /* PhotoListViewController.m in Sources */,
 				7E1BBC7719EE417200184499 /* AFSecurityPolicy.m in Sources */,
 				7E13F85019EFA2DB00F347DF /* CollectionViewController.m in Sources */,
-				7E1BBC9519EE417200184499 /* WApi.m in Sources */,
 				7E1BBC7519EE417200184499 /* AFHTTPSessionManager.m in Sources */,
 				7E1BBC7919EE417200184499 /* AFURLRequestSerialization.m in Sources */,
 				7E1BBC7B19EE417200184499 /* AFURLSessionManager.m in Sources */,

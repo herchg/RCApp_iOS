@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "WTask.h"
-#import "WApiTask.h"
 
-@interface RootViewController : UIViewController <WTask,WApiTask>
+@interface RootViewController : UIViewController <WTask>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 

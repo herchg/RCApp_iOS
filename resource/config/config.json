@@ -1,4 +1,5 @@
 {
+    "AddOrderApiUrl": "http://60.199.195.25/test.php",
     "LogServerUrl": "http://RC.wistron.asia",
     "LogSendToServer": false,
     "LogWriteToFile": false,

@@ -1,28 +1,30 @@
 //
-//  webApiLib.h
+//  WApi.h
 //  RCApp_IOS
 //
-//  Created by Samuel on 2014/10/15.
+//  Created by Samuel on 2014/10/22.
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Json.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPRequestOperation.h"
+#import "AsyncTaskManager.h"
 
-@interface WApi : NSObject
+@interface WApi : NSObject 
 
--(WApi*)init;
+-(void)isCallbackToMainThread:(BOOL)value;
 
--(void)responseIsText;
+-(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock;
 
--(void)callApiGet:(NSString*)url withParameters:(NSDictionary*)parameters withTaskName:(NSString*)taskName;
+-(void)setApiUrl:(NSString*)url;
 
--(void)callApiPost:(NSString*)url withParameters:(NSDictionary*)parameters withTaskName:(NSString*)taskName;
+-(void)setApiMethod:(NSString*)method;
 
--(void)callApiDelete:(NSString*)url withParameters:(NSDictionary*)parameters withTaskName:(NSString*)taskName;
+-(void)setContentType:(NSString*)contentType;
 
--(void)callApiPut:(NSString*)url withParameters:(NSDictionary*)parameters withTaskName:(NSString*)taskName;
-    
+-(void)setApiParameters:(NSDictionary*)parameters;
+
+-(void)startCallApi;
+
 @end

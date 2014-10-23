@@ -11,13 +11,11 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPRequestOperation.h"
 #import "WTask.h"
-#import "WApiTask.h"
+#import "Log.h"
 
 @interface AsyncTaskManager : NSObject
 
-//執行Task 並傳入taskName作為識別
-+(void)executeTask:(id<WTask>)task withTaskName:(NSString*)taskName;
-
-+(void)executeApiTask:(id<WApiTask>)task withTaskName:(NSString*)taskName;
+//執行Task
++(void)executeTask:(id<WTask>)task;
 
 @end
