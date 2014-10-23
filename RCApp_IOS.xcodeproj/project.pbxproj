@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0FFF5219F896D0007F322A /* HttpTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF4E19F896D0007F322A /* HttpTaskManager.m */; };
+		7E0FFF5319F896D0007F322A /* TaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5119F896D0007F322A /* TaskManager.m */; };
+		7E0FFF5719F89BE5007F322A /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0FFF5619F89BE5007F322A /* Api.m */; };
 		7E13F84319EF6B6100F347DF /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E13F83619EF6B6100F347DF /* config.json */; };
 		7E13F84419EF6B6100F347DF /* rc.db in Resources */ = {isa = PBXBuildFile; fileRef = 7E13F83819EF6B6100F347DF /* rc.db */; };
 		7E13F84519EF6B6100F347DF /* p1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7E13F83A19EF6B6100F347DF /* p1.jpeg */; };
@@ -21,7 +24,6 @@
 		7E13F85019EFA2DB00F347DF /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E13F84F19EFA2DB00F347DF /* CollectionViewController.m */; };
 		7E13F88819EFC1D000F347DF /* PhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E13F88719EFC1D000F347DF /* PhotoListViewController.m */; };
 		7E13F88B19EFC4A500F347DF /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E13F88A19EFC4A500F347DF /* CameraViewController.m */; };
-		7E13F89519F10B0B00F347DF /* AsyncTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E13F89419F10B0B00F347DF /* AsyncTaskManager.m */; };
 		7E1BBBDE19EE15B100184499 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1BBBDD19EE15B100184499 /* FacebookSDK.framework */; };
 		7E1BBC7319EE417200184499 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC2019EE417200184499 /* AFHTTPRequestOperation.m */; };
 		7E1BBC7419EE417200184499 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC2219EE417200184499 /* AFHTTPRequestOperationManager.m */; };
@@ -58,8 +60,7 @@
 		7E964C6419ED2310009FC8C9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E964C6319ED2310009FC8C9 /* libsqlite3.0.dylib */; };
 		7E964C6619ED2323009FC8C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E964C6519ED2323009FC8C9 /* SystemConfiguration.framework */; };
 		7ECA89CA19F74D3C007418BF /* DataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA89C919F74D3C007418BF /* DataService.m */; };
-		7ECA89CE19F77CED007418BF /* WImageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA89CD19F77CED007418BF /* WImageTask.m */; };
-		7ECA89D319F79892007418BF /* WApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA89D219F79892007418BF /* WApi.m */; };
+		7ECA89CE19F77CED007418BF /* ImageLoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA89CD19F77CED007418BF /* ImageLoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E0FFF4C19F896D0007F322A /* HttpTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTask.h; sourceTree = "<group>"; };
+		7E0FFF4D19F896D0007F322A /* HttpTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTaskManager.h; sourceTree = "<group>"; };
+		7E0FFF4E19F896D0007F322A /* HttpTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTaskManager.m; sourceTree = "<group>"; };
+		7E0FFF4F19F896D0007F322A /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		7E0FFF5019F896D0007F322A /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
+		7E0FFF5119F896D0007F322A /* TaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskManager.m; sourceTree = "<group>"; };
+		7E0FFF5519F89BE5007F322A /* Api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
+		7E0FFF5619F89BE5007F322A /* Api.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.m; sourceTree = "<group>"; };
 		7E13F83619EF6B6100F347DF /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		7E13F83819EF6B6100F347DF /* rc.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = rc.db; sourceTree = "<group>"; };
 		7E13F83A19EF6B6100F347DF /* p1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p1.jpeg; sourceTree = "<group>"; };
@@ -90,9 +99,6 @@
 		7E13F88719EFC1D000F347DF /* PhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoListViewController.m; sourceTree = "<group>"; };
 		7E13F88919EFC4A500F347DF /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		7E13F88A19EFC4A500F347DF /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		7E13F89319F10B0B00F347DF /* AsyncTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTaskManager.h; sourceTree = "<group>"; };
-		7E13F89419F10B0B00F347DF /* AsyncTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTaskManager.m; sourceTree = "<group>"; };
-		7E13F89E19F11A8100F347DF /* WTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTask.h; sourceTree = "<group>"; };
 		7E1BBBDD19EE15B100184499 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		7E1BBC1F19EE417200184499 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7E1BBC2019EE417200184499 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -163,10 +169,8 @@
 		7E964C6519ED2323009FC8C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7ECA89C819F74D3C007418BF /* DataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataService.h; sourceTree = "<group>"; };
 		7ECA89C919F74D3C007418BF /* DataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataService.m; sourceTree = "<group>"; };
-		7ECA89CC19F77CED007418BF /* WImageTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WImageTask.h; sourceTree = "<group>"; };
-		7ECA89CD19F77CED007418BF /* WImageTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WImageTask.m; sourceTree = "<group>"; };
-		7ECA89D119F79892007418BF /* WApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WApi.h; sourceTree = "<group>"; };
-		7ECA89D219F79892007418BF /* WApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WApi.m; sourceTree = "<group>"; };
+		7ECA89CC19F77CED007418BF /* ImageLoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoder.h; sourceTree = "<group>"; };
+		7ECA89CD19F77CED007418BF /* ImageLoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0FFF4B19F896D0007F322A /* task */ = {
+			isa = PBXGroup;
+			children = (
+				7E0FFF4C19F896D0007F322A /* HttpTask.h */,
+				7E0FFF4D19F896D0007F322A /* HttpTaskManager.h */,
+				7E0FFF4E19F896D0007F322A /* HttpTaskManager.m */,
+				7E0FFF4F19F896D0007F322A /* Task.h */,
+				7E0FFF5019F896D0007F322A /* TaskManager.h */,
+				7E0FFF5119F896D0007F322A /* TaskManager.m */,
+			);
+			path = task;
+			sourceTree = "<group>";
+		};
+		7E0FFF5419F89BD6007F322A /* api */ = {
+			isa = PBXGroup;
+			children = (
+				7E0FFF5519F89BE5007F322A /* Api.h */,
+				7E0FFF5619F89BE5007F322A /* Api.m */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		7E0FFF5819F8A1AD007F322A /* cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cache;
+			sourceTree = "<group>";
+		};
 		7E13F83419EF6B6100F347DF /* resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,16 +264,6 @@
 				7E13F84219EF6B6100F347DF /* p8.png */,
 			);
 			path = image;
-			sourceTree = "<group>";
-		};
-		7E13F88C19F0EA2000F347DF /* async */ = {
-			isa = PBXGroup;
-			children = (
-				7E13F89319F10B0B00F347DF /* AsyncTaskManager.h */,
-				7E13F89419F10B0B00F347DF /* AsyncTaskManager.m */,
-				7E13F89E19F11A8100F347DF /* WTask.h */,
-			);
-			path = async;
 			sourceTree = "<group>";
 		};
 		7E1BBC1C19EE417200184499 /* class */ = {
@@ -368,8 +391,10 @@
 		7E1BBC5B19EE417200184499 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				7E0FFF5819F8A1AD007F322A /* cache */,
+				7E0FFF5419F89BD6007F322A /* api */,
+				7E0FFF4B19F896D0007F322A /* task */,
 				7ECA89C719F74D2A007418BF /* data */,
-				7E13F88C19F0EA2000F347DF /* async */,
 				7E1BBC5C19EE417200184499 /* config */,
 				7E1BBC5F19EE417200184499 /* context */,
 				7E1BBC6019EE417200184499 /* db */,
@@ -447,7 +472,6 @@
 		7E1BBC6F19EE417200184499 /* rc */ = {
 			isa = PBXGroup;
 			children = (
-				7ECA89D019F79886007418BF /* api */,
 				7ECA89CB19F77CD4007418BF /* ui */,
 			);
 			path = rc;
@@ -532,19 +556,10 @@
 		7ECA89CB19F77CD4007418BF /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				7ECA89CC19F77CED007418BF /* WImageTask.h */,
-				7ECA89CD19F77CED007418BF /* WImageTask.m */,
+				7ECA89CC19F77CED007418BF /* ImageLoder.h */,
+				7ECA89CD19F77CED007418BF /* ImageLoder.m */,
 			);
 			path = ui;
-			sourceTree = "<group>";
-		};
-		7ECA89D019F79886007418BF /* api */ = {
-			isa = PBXGroup;
-			children = (
-				7ECA89D119F79892007418BF /* WApi.h */,
-				7ECA89D219F79892007418BF /* WApi.m */,
-			);
-			path = api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -667,14 +682,16 @@
 				7E1BBC9319EE417200184499 /* Json.m in Sources */,
 				7E1BBC8219EE417200184499 /* LoggerClient.m in Sources */,
 				7E1BBC7619EE417200184499 /* AFNetworkReachabilityManager.m in Sources */,
+				7E0FFF5319F896D0007F322A /* TaskManager.m in Sources */,
 				7E1BBC8F19EE417200184499 /* Config.m in Sources */,
+				7E0FFF5219F896D0007F322A /* HttpTaskManager.m in Sources */,
 				7E1BBC9119EE417200184499 /* FileManage.m in Sources */,
 				7ECA89CA19F74D3C007418BF /* DataService.m in Sources */,
-				7ECA89CE19F77CED007418BF /* WImageTask.m in Sources */,
+				7ECA89CE19F77CED007418BF /* ImageLoder.m in Sources */,
 				7E1BBC8119EE417200184499 /* FMResultSet.m in Sources */,
+				7E0FFF5719F89BE5007F322A /* Api.m in Sources */,
 				7E1BBC7A19EE417200184499 /* AFURLResponseSerialization.m in Sources */,
 				7E1BBC9819EE419500184499 /* WContext.m in Sources */,
-				7ECA89D319F79892007418BF /* WApi.m in Sources */,
 				7E1BBC7819EE417200184499 /* AFURLConnectionOperation.m in Sources */,
 				7E13F88819EFC1D000F347DF /* PhotoListViewController.m in Sources */,
 				7E1BBC7719EE417200184499 /* AFSecurityPolicy.m in Sources */,
@@ -688,7 +705,6 @@
 				7E1BBC8019EE417200184499 /* FMDatabaseQueue.m in Sources */,
 				7E1BBC9019EE417200184499 /* Db.m in Sources */,
 				7E1BBC9219EE417200184499 /* Image.m in Sources */,
-				7E13F89519F10B0B00F347DF /* AsyncTaskManager.m in Sources */,
 				7E964BBC19ED22A3009FC8C9 /* RCApp_IOS.xcdatamodeld in Sources */,
 				7E13F88B19EFC4A500F347DF /* CameraViewController.m in Sources */,
 				7E1BBC7E19EE417200184499 /* FMDatabaseAdditions.m in Sources */,

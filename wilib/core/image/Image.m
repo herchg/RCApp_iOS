@@ -10,24 +10,29 @@
 
 @implementation Image
 
-+(UIImage*)getImageFromUrl:(NSString*)url{
++(UIImage*)getImageFromUrl:(NSString*)url {
     
     NSURL *imgUrl = [NSURL URLWithString:url];
+    
     NSData *imgData = [NSData dataWithContentsOfURL:imgUrl];
+    
     UIImage *img = [[UIImage alloc] initWithData:imgData];
     
     return img;
 }
 
 
-+(UIImage*)getImageFromName:(NSString*)imgName{
++(UIImage*)getImageFromName:(NSString*)imgName {
+    
     UIImage *img = [UIImage imageNamed:imgName];
     
     return img;
 }
 
-+(NSString*)getImageTypeFromData:(NSData*)imgData{
++(NSString*)getImageTypeFromData:(NSData*)imgData {
+    
     uint8_t code;
+    
     [imgData getBytes:&code length:1];
     
     NSString *imageType;

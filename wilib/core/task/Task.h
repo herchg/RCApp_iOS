@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol WTask
+@protocol Task
 
 @required
 
-//開始執行task,實作的method需return成功or失敗
+//開始執行task
 -(void)doTask;
 //task後續處理
 -(void)doCallback;

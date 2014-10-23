@@ -10,12 +10,12 @@
 #import "Json.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPRequestOperation.h"
-#import "WTask.h"
+#import "Task.h"
 #import "Log.h"
 
-@interface AsyncTaskManager : NSObject
+@interface TaskManager : NSObject
 
 //執行Task
-+(void)executeTask:(id<WTask>)task;
++(void)executeTask:(id<Task>)task;
 
 @end

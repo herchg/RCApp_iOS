@@ -8,31 +8,16 @@
 
 #import "DataService.h"
 
-@implementation DataService{
-    void (^_callbackBlock)(NSDictionary* resultData);
-}
+@implementation DataService
 
--(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock{
-    _callbackBlock = callbackBlock;
-}
-
--(void)testApi:(NSDictionary*)data{
-    WApi *myapi = [[WApi alloc] init];
-    [myapi setApiMethod:@"GET"];
-    [myapi setApiUrl:[Config getConfigJsonValueForKey:@"AddOrderApiUrl"]];
-    [myapi setApiParameters:data];
-    [myapi setContentType:@"text/html"];
-    [myapi isCallbackToMainThread:YES];
-    [myapi setCallbackBlock:^(NSDictionary *resultData) {
-        [self checkApiComplite:resultData];
+-(void)testDataService{
+    
+    Api *testApi = [[Api alloc] init];
+    [testApi setCallbackBlock:^(NSDictionary *data) {
+        [Log loggerMessage:[NSString stringWithFormat:@"success %@",data]];
     }];
     
-    [myapi startCallApi];
-}
-
--(void)checkApiComplite:(NSDictionary*)data{
-    
-    _callbackBlock(data);
+    [testApi testApi:nil];
 }
 
 @end

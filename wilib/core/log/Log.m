@@ -9,14 +9,20 @@
 
 @implementation Log
 
-+(void)loggerMessage:(NSString*)msg{
++(void)loggerMessage:(NSString*)msg {
+    
     if([Config getConfigJsonValueForKey:@"ShowDebugLog"]){
+    
         NSLog(@"%@",msg);
+    
     }
     
     if([Config getConfigJsonValueForKey:@"LogWriteToFile"]){
+    
         NSString *logFileFolder = @"/log";
+        
         if([FileManage createFolder:logFileFolder]){
+        
             NSString *logFileName = [NSString stringWithFormat:@"%@%@",logFileFolder,@"/log.txt"];
             
             [FileManage saveFileFromString:logFileName withString:msg];

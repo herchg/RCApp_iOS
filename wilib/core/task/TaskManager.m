@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "AsyncTaskManager.h"
+#import "TaskManager.h"
 
-@implementation AsyncTaskManager
+@implementation TaskManager
 
-+(void)executeTask:(id<WTask>)task{
++(void)executeTask:(id<Task>)task {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     

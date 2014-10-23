@@ -8,11 +8,10 @@
 
 #import "RootViewController.h"
 #import "WContext.h"
-#import "Image.h"
-#import "AsyncTaskManager.h"
 #import "Config.h"
 #import "Log.h"
 #import "DataService.h"
+#import "ImageLoder.h"
 
 @interface RootViewController ()
 
@@ -46,17 +45,23 @@
 }
 
 - (IBAction)clickButton:(id)sender {
-    //[AsyncTaskManager executeTask:self];
     
+    DataService *mydataService = [[DataService alloc] init];
+    [mydataService testDataService];
+    
+    /*
     DataService *mydata = [[DataService alloc] init];
     [mydata setCallbackBlock:^(NSDictionary *data) {
         NSLog(@"success:%@",data);
-        UIImage *img = [Image getImageFromName:@"p1.png"];
-        _imageView.image = img;
     }];
     [mydata testApi:nil];
   
-   
+   */
+    
+    ImageLoder *myTask = [[ImageLoder alloc] init];
+    [myTask setTargetImageView:_imageView withDefaultImage:@"p3.png"];
+    [myTask setImageUrl:@"http://cg2010studio.files.wordpress.com/2011/12/mrt.png"];
+    [myTask startLoadingImage];
 }
 
 
@@ -64,23 +69,6 @@
 - (IBAction)clickBtn2:(id)sender {
     NSLog(@"clickBtn2");
     
-}
-
-/*-----------以下為WTaskprotocal必須實做的method-----------------*/
--(BOOL)callbackToMainThread{
-    return YES;
-}
-
--(void)doTask{
-    NSLog(@"image doTask");
-    m_ContentImage = [Image getImageFromUrl:@"http://cg2010studio.files.wordpress.com/2011/12/mrt.png"];
-}
-
--(void)doCallback{
-    NSLog(@"image doCallback");
-    if(m_ContentImage !=nil){
-        [_imageView setImage:m_ContentImage];
-    }
 }
 
 

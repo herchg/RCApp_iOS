@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "WImageTask.h"
+#import "ImageLoder.h"
 
-@implementation WImageTask{
+@implementation ImageLoder{
 
     NSString *m_ImageIndex;
     NSString *m_ImageUrl;
@@ -16,8 +16,13 @@
     UIImage *m_ContentImage;
 }
 
--(void)setTargetImageView:(UIImageView*)target{
+-(void)setTargetImageView:(UIImageView*)target withDefaultImage:(NSString*)imageName{
     m_TargetImageView = target;
+    
+    //預設圖檔
+    if(imageName && ![imageName isEqualToString:@""]){
+        [m_TargetImageView setImage:[Image getImageFromName:imageName]];
+    }
 }
 
 -(void)setImageUrl:(NSString*)url{
@@ -25,7 +30,7 @@
 }
 
 -(void)startLoadingImage{
-    [AsyncTaskManager executeTask:self];
+    [TaskManager executeTask:self];
 }
 
 /*-----------以下為WTaskprotocal必須實做的method-----------------*/
@@ -33,23 +38,18 @@
     return YES;
 }
 
--(BOOL)doTask{
-    NSLog(@"image doTask");
+-(void)doTask{
+    NSLog(@"do task");
     m_ContentImage = [Image getImageFromUrl:m_ImageUrl];
-    
+}
+
+-(void)doCallback{
+    //圖檔ＯＫ更新
     if(m_ContentImage != nil){
-        return YES;
-    }else{
-        return NO;
+    
+        [m_TargetImageView setImage:m_ContentImage];
     }
 }
 
--(void)onSuccess{
-    [m_TargetImageView setImage:m_ContentImage];
-}
-
--(void)onFail{
-
-}
 
 @end

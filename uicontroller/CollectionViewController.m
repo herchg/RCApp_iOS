@@ -7,7 +7,7 @@
 //
 
 #import "CollectionViewController.h"
-#import "WImageTask.h"
+#import "ImageLoder.h"
 
 @interface CollectionViewController (){
 

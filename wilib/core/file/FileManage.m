@@ -10,19 +10,22 @@
 
 @implementation FileManage
 
-+(NSString*)getDocumentDir{
++(NSString*)getDocumentDir {
+    
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     return docDir;
 }
 
-+(NSFileManager*)getFileManager{
++(NSFileManager*)getFileManager {
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     return fileManager;
 }
 
-+(BOOL)createFolder:(NSString*)folderPath{
++(BOOL)createFolder:(NSString*)folderPath {
+    
     NSString *rootDir = [self getDocumentDir];
     
     NSFileManager *fileManager = [self getFileManager];
@@ -41,7 +44,8 @@
 }
 
 
-+(BOOL)saveFileFromData:(NSString*)filePath withData:(NSData*)fileData{
++(BOOL)saveFileFromData:(NSString*)filePath withData:(NSData*)fileData {
+    
     NSString *rootDir = [self getDocumentDir];
     
     NSString *savePath = [NSString stringWithFormat:@"%@%@",rootDir,filePath];
@@ -51,7 +55,8 @@
     return result;
 }
 
-+(BOOL)saveFileFromString:(NSString*)filePath withString:(NSString*)logMsg{
++(BOOL)saveFileFromString:(NSString*)filePath withString:(NSString*)logMsg {
+    
     NSString *rootDir = [self getDocumentDir];
     
     NSString *savePath = [NSString stringWithFormat:@"%@%@",rootDir,filePath];

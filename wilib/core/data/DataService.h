@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Log.h"
-#import "WApi.h"
 #import "Config.h"
-#import "AsyncTaskManager.h"
+#import "Api.h"
+
+/*負責所有的資料處理*/
 
 @interface DataService : NSObject
 
--(void)setCallbackBlock:(void(^)(NSDictionary*))callbackBlock;
-
--(void)testApi:(NSDictionary*)data;
+-(void)testDataService;
 
 @end
