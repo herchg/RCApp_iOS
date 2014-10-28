@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Task.h"
-#import "Image.h"
-#import "TaskManager.h"
 
 @interface ImageLoder : NSObject <Task>
 

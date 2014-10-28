@@ -7,6 +7,10 @@
 //
 
 #import "RCLogApi.h"
+#import "RCConfig.h"
+#import "ApiTask.h"
+#import "HttpTaskManager.h"
+
 
 @implementation RCLogApi
 
@@ -15,7 +19,7 @@
 
     ApiTask *myTask = [[ApiTask alloc] init];
     
-    [myTask setApiUrl:[Config getConfigJsonValueForKey:@"LogServerUrl"]];
+    [myTask setApiUrl:[[RCConfig new] getConfigJsonValueForKey:@"LogServerUrl"]];
     
     [myTask setApiMethod:@"POST"];
     

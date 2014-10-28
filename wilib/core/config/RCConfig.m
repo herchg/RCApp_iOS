@@ -6,11 +6,12 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "Config.h"
+#import "RCConfig.h"
+#import "Json.h"
 
-@implementation Config
+@implementation RCConfig
 
-+(NSString*)getPlistConfigValueForKey:(NSString*)key{
+-(NSString*)getPlistConfigValueForKey:(NSString*)key{
     
     NSBundle *bundel = [NSBundle mainBundle];
     
@@ -19,17 +20,17 @@
     return configValue;
 }
 
-+(NSString*)getConfigJsonValueForKey:(NSString*)key{
+-(NSString*)getConfigJsonValueForKey:(NSString*)key{
     
-    NSString *configName = [Config getPlistConfigValueForKey:@"RC_Config_Name"];
+    NSString *configName = [self getPlistConfigValueForKey:@"RC_Config_Name"];
     
-    NSString *configSubName = [Config getPlistConfigValueForKey:@"RC_Config_SubName"];
+    NSString *configSubName = [self getPlistConfigValueForKey:@"RC_Config_SubName"];
     
     NSString *path   = [[NSBundle mainBundle] pathForResource:configName ofType:configSubName ];
     
     NSString *jsonText = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 
-    NSDictionary *configDict = [Json jsonDecodeWithString:jsonText];
+    NSDictionary *configDict = [[Json new] jsonDecodeWithString:jsonText];
     
     return [configDict objectForKey:key];
 }

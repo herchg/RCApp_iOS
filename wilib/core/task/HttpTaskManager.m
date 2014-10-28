@@ -8,13 +8,16 @@
 
 #import "HttpTaskManager.h"
 
+
 @implementation HttpTaskManager
 
-+(AFHTTPRequestOperationManager *)createNetworkManager{
 
++(AFHTTPRequestOperationManager*)createNetworkManager{
+        
     AFHTTPRequestOperationManager *networkManager = [AFHTTPRequestOperationManager manager];
-    
+        
     [networkManager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
+        
     //timeout設定
     [networkManager.requestSerializer setTimeoutInterval:15];
     

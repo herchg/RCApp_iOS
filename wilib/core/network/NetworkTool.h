@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Reachability.h"
+
 
 @interface NetworkTool : NSObject
 
 //判斷網路是否work
-+(NSNumber*)checkNetworkIsWork;
+-(NSNumber*)checkNetworkIsWork;
 
 @end

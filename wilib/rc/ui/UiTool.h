@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Image.h"
+#import <UIKit/UIKit.h>
 
 @interface UiTool : NSObject
 
 //產生loading的動畫UIImageView
-+(UIImageView*)createLoadingImageView;
+-(UIImageView*)createLoadingImageView;
 
 //取得目前裝置的size
-+(CGSize)getDeviceScreenSize;
+-(CGSize)getDeviceScreenSize;
 
 @end

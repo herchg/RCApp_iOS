@@ -12,7 +12,7 @@
 
 
 //json encode
-+(NSData*) jsonEncode:(NSDictionary*)data {
+-(NSData*) jsonEncode:(NSDictionary*)data {
     
     NSData *jsonData;
     
@@ -26,7 +26,7 @@
 }
 
 //json decode with string
-+(NSDictionary*) jsonDecodeWithString:(NSString*)data {
+-(NSDictionary*) jsonDecodeWithString:(NSString*)data {
     
     NSData *source = [data dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -36,7 +36,7 @@
 }
 
 //json decode with NSdata
-+(NSDictionary*) jsonDecodeWithNsdata:(NSData*)data {
+-(NSDictionary*) jsonDecodeWithNsdata:(NSData*)data {
     
     NSError *error;
     

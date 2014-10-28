@@ -1,31 +1,27 @@
 //
-//  Context.h
+//  WContext.h
 //  RCApp_IOS
 //
-//  Created by Samuel on 2014/10/15.
+//  Created by Samuel on 2014/10/24.
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "RCConfig.h"
+#import "DataService.h"
+#import "CacheManager.h"
+#import "RCApi.h"
 
 @interface WContext : NSObject
 
-+(NSUserDefaults*)createContext;
++(DataService*)getDataServiceClass;
 
-+(void)syncContext:(NSUserDefaults*)userdefault;
++(RCConfig*)getRCConfigClass;
 
-+(void)setObject:(NSString*)key withObject:(id)data;
++(CacheManager*)getCacheManagerClass;
 
-+(void)setBool:(NSString*)key withBool:(BOOL)data;
++(RCApi*)getRCApiClass;
 
-+(void)setIntegert:(NSString*)key withInteger:(int)data;
 
-+(NSString*)getStringForKey:(NSString*)key;
-
-+(NSArray*)getArrayForKey:(NSString*)key;
-
-+(BOOL)getBoolForKey:(NSString*)key;
-
-+(int)getIntegerForKey:(NSString*)key;
 
 @end

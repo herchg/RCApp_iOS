@@ -8,34 +8,38 @@
 
 #import "FileManage.h"
 
-@implementation FileManage
+@implementation FileManage {
 
-+(NSString*)getDocumentDir {
+    NSFileManager *mFileManager;
+}
+
+-(NSString*)getDocumentDir {
     
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     return docDir;
 }
 
-+(NSFileManager*)getFileManager {
+-(void)getFileManager {
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-    return fileManager;
+    if(!mFileManager){
+        
+        mFileManager = [NSFileManager defaultManager];
+    }
 }
 
-+(BOOL)createFolder:(NSString*)folderPath {
+-(BOOL)createFolder:(NSString*)folderPath {
     
     NSString *rootDir = [self getDocumentDir];
     
-    NSFileManager *fileManager = [self getFileManager];
+    [self getFileManager];
     
     //check folder
     NSString *fPath = [NSString stringWithFormat:@"%@%@",rootDir,folderPath];
 
     BOOL result = NO;
-    if(![fileManager fileExistsAtPath:fPath]){
-        result = [fileManager createDirectoryAtPath:fPath withIntermediateDirectories:YES attributes:nil error:nil];
+    if(![mFileManager fileExistsAtPath:fPath]){
+        result = [mFileManager createDirectoryAtPath:fPath withIntermediateDirectories:YES attributes:nil error:nil];
     }else{
         result = YES;
     }
@@ -44,7 +48,7 @@
 }
 
 
-+(BOOL)saveFileFromData:(NSString*)filePath withData:(NSData*)fileData {
+-(BOOL)saveFileFromData:(NSString*)filePath withData:(NSData*)fileData {
     
     NSString *rootDir = [self getDocumentDir];
     
@@ -55,19 +59,22 @@
     return result;
 }
 
-+(BOOL)saveFileFromString:(NSString*)filePath withString:(NSString*)logMsg {
+-(BOOL)saveFileFromString:(NSString*)filePath withString:(NSString*)logMsg {
     
     NSString *rootDir = [self getDocumentDir];
     
     NSString *savePath = [NSString stringWithFormat:@"%@%@",rootDir,filePath];
     
-    NSFileManager *fileManager = [self getFileManager];
+    [self getFileManager];
     
     NSString *writeStr;
-    if([fileManager fileExistsAtPath:savePath]){
+    if([mFileManager fileExistsAtPath:savePath]){
+        
         NSString *oldString = [NSString stringWithContentsOfFile:savePath encoding:NSUTF8StringEncoding error:nil];
+        
         writeStr = [NSString stringWithFormat:@"%@\n%@ %@",oldString,[NSDate date],logMsg];
     }else{
+        
         writeStr = [NSString stringWithFormat:@"%@ %@",[NSDate date],logMsg];
     }
     

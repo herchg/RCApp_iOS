@@ -8,35 +8,28 @@
 
 #import "RootViewController.h"
 #import "WContext.h"
-#import "Config.h"
-#import "Log.h"
-#import "DataService.h"
-#import "ImageLoder.h"
-#import "NetworkTool.h"
 #import "UiTool.h"
+#import "Log.h"
+#import "Image.h"
+#import "PhotoAlbumListViewController.h"
 
 @interface RootViewController ()
 
 @end
 
 @implementation RootViewController{
-    //下載後的圖檔
-    UIImage *m_ContentImage;
     
-    NSMutableArray *m_MyDataService;
+    PhotoAlbumListViewController *mListPhoto;
+    
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     _imageView.frame = CGRectMake(0, 0, 800,800);
-
-    m_MyDataService = [[NSMutableArray alloc] init];
-    /*
-    NSString *logStr = [NSString stringWithFormat:@"config value:%@",[Config getConfigJsonValueForKey:@"LogWriteToFile"]];
-    [Log loggerMessage:logStr];
-    */
+ 
 }
 
 
@@ -46,19 +39,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)clickButton:(id)sender {
 
-    UIImageView *loadingView = [UiTool createLoadingImageView];
+- (IBAction)clickButton:(id)sender {
+    
+    UIImage *myimg = [Image getImageFromName:@"p1.png"];
+    
+    [Image saveImageToPhotoAlbum:myimg];
+    
+    /*
+    UiTool *myUITool = [[UiTool alloc] init];
+    
+    UIImageView *loadingView = [myUITool createLoadingImageView];
     
     [self.view addSubview:loadingView];
     
     //取消使用者的手勢/touch事件 不能點擊任何按鈕
     [self.view setUserInteractionEnabled:NO];
     
-    DataService *mydataService = [[DataService alloc] init];
+    DataService *mydataService = [WContext getDataServiceClass];
     [mydataService setCallbackToMainThread:NO];
     [mydataService setCallbackBlock:^(NSDictionary *data) {
-        NSLog(@"get data:%@",data);
+        [Log loggerMessage:[NSString stringWithFormat:@"get data:%@",data]];
         
         [loadingView removeFromSuperview];
         
@@ -66,16 +67,8 @@
         [self.view setUserInteractionEnabled:YES];
     }];
     [mydataService testDataService];
+    */
     
-    
-    /*
-    DataService *mydata = [[DataService alloc] init];
-    [mydata setCallbackBlock:^(NSDictionary *data) {
-        NSLog(@"success:%@",data);
-    }];
-    [mydata testApi:nil];
-  
-   */
     
     /*
     ImageLoder *myTask = [[ImageLoder alloc] init];
@@ -88,9 +81,29 @@
 
 
 - (IBAction)clickBtn2:(id)sender {
-    NSLog(@"clickBtn2");
+    
+    [Log loggerMessage:@"clickBtn2"];
+    
+    if(mListPhoto == nil){
+        mListPhoto = [[PhotoAlbumListViewController alloc] init];
+    }
+    
+    [mListPhoto setCallbackBlock:^(NSDictionary *data) {
+        if(data == nil){
+            NSLog(@"no select");
+        }else{
+            NSLog(@"image=%@",[data objectForKey:@"image"]);
+        }
+        
+        
+    }];
+    
+    UIViewController *albumView = [mListPhoto createPhotoAlbumViewController];
+     
+    [self presentViewController:albumView animated:YES completion:nil];
+     
+    
     
 }
-
 
 @end

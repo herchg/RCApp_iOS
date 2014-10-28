@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FMDatabase.h"
-#import "Log.h"
-#import "Config.h"
+
 
 @interface Db : NSObject
 

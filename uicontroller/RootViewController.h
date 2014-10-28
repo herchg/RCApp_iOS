@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CrashReporter/CrashReporter.h>
 
 @interface RootViewController : UIViewController
 

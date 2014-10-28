@@ -7,16 +7,28 @@
 //
 
 #import "NetworkTool.h"
+#import "Reachability.h"
 
-@implementation NetworkTool
+@implementation NetworkTool {
 
-+(NSNumber*)checkNetworkIsWork {
+    Reachability *mReachability;
+}
+
+-(void)createReachability {
+
+    if(!mReachability){
+        mReachability = [Reachability reachabilityForInternetConnection];
+    }
+}
+
+-(NSNumber*)checkNetworkIsWork {
     
-    Reachability *r= [Reachability reachabilityForInternetConnection];
+    [self createReachability];
     
     NSNumber *isWork = [NSNumber numberWithBool:YES];
     
-    if ([r currentReachabilityStatus] == NotReachable) {
+    if ([mReachability currentReachabilityStatus] == NotReachable) {
+        
         isWork = [NSNumber numberWithBool:NO];
     }
 

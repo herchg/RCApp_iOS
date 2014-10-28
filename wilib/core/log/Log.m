@@ -6,35 +6,41 @@
 //  Copyright (c) 2014年 User. All rights reserved.
 //
 #import "Log.h"
+#import "RCConfig.h"
+#import "FileManage.h"
 
 @implementation Log
 
 +(void)loggerMessage:(NSString*)msg {
     
+    RCConfig *myConfig = [[RCConfig alloc] init];
+    
     //是否顯示ＬＯＧ
-    if([Config getConfigJsonValueForKey:@"ShowDebugLog"]){
+    if([myConfig getConfigJsonValueForKey:@"ShowDebugLog"]){
     
         NSLog(@"%@",msg);
     
     }
     
     //是否把ＬＯＧ寫入檔案
-    if([Config getConfigJsonValueForKey:@"LogWriteToFile"]){
+    if([myConfig getConfigJsonValueForKey:@"LogWriteToFile"]){
         
-        NSString *logFileFolder = [Config getConfigJsonValueForKey:@"LogFileFolder"];
+        FileManage *myFilemanager = [[FileManage alloc] init];
+        
+        NSString *logFileFolder = [myConfig getConfigJsonValueForKey:@"LogFileFolder"];
     
-        NSString *logFileName = [Config getConfigJsonValueForKey:@"LogFileName"];
+        NSString *logFileName = [myConfig getConfigJsonValueForKey:@"LogFileName"];
 
-        if([FileManage createFolder:logFileFolder]){
+        if([myFilemanager createFolder:logFileFolder]){
         
             NSString *logFilePath = [NSString stringWithFormat:@"%@/%@",logFileFolder,logFileName];
             
-            [FileManage saveFileFromString:logFilePath withString:msg];
+            [myFilemanager saveFileFromString:logFilePath withString:msg];
         }
     }
     
     //是否把ＬＯＧ傳到server
-    if([Config getConfigJsonValueForKey:@"LogSendToServer"]){
+    if([myConfig getConfigJsonValueForKey:@"LogSendToServer"]){
  
     }
 }

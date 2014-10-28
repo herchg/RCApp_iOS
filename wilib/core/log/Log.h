@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FileManage.h"
-#import "Config.h"
 
 @interface Log : NSObject
 

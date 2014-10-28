@@ -10,14 +10,11 @@
 
 @interface FileManage : NSObject
 
-+(NSString*)getDocumentDir;
 
-+(NSFileManager*)getFileManager;
+-(BOOL)createFolder:(NSString*)folderPath;
 
-+(BOOL)createFolder:(NSString*)folderPath;
+-(BOOL)saveFileFromData:(NSString*)filePath withData:(NSData*)fileData;
 
-+(BOOL)saveFileFromData:(NSString*)filePath withData:(NSData*)fileData;
-
-+(BOOL)saveFileFromString:(NSString*)filePath withString:(NSString*)logMsg;
+-(BOOL)saveFileFromString:(NSString*)filePath withString:(NSString*)logMsg;
     
 @end

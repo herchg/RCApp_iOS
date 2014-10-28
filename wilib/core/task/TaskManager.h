@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Json.h"
-#import "AFHTTPRequestOperationManager.h"
-#import "AFHTTPRequestOperation.h"
+
 #import "Task.h"
 #import "Log.h"
 

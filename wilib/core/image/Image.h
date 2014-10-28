@@ -19,4 +19,8 @@
 
 +(UIImage*)getAnimatedImageFromName:(NSString*)imgName;
 
++(void)saveImageToPhotoAlbum:(UIImage*)image;
+
++(void)saveVideoToPhotoAlbum:(NSURL*)videoUrl;
+
 @end

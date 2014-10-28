@@ -7,6 +7,10 @@
 //
 
 #import "DataService.h"
+#import "Log.h"
+#import "RCConfig.h"
+#import "RCApi.h"
+#import "Db.h"
 
 @implementation DataService {
     //外部設定的callback block

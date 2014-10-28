@@ -7,6 +7,9 @@
 //
 
 #import "ImageLoder.h"
+#import "Image.h"
+#import "TaskManager.h"
+
 
 @implementation ImageLoder{
 

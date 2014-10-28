@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPRequestOperation.h"
 #import "HttpTask.h"
+#import "Log.h"
 
 @interface HttpTaskManager : NSObject
 

@@ -66,4 +66,62 @@
     return imageType;
 }
 
+
++(void)saveImageToPhotoAlbum:(UIImage*)image {
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(checkSaveImageResult:withError:withContextInfo:), nil);
+}
+
++(void)checkSaveImageResult:(UIImage*)image withError:(NSError*)error withContextInfo:(void *)contextInfo {
+
+    UIAlertView *alert;
+    
+    if(error){
+        alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                           message:[error description]
+                                          delegate:self
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil];
+        
+    } else {
+        alert = [[UIAlertView alloc] initWithTitle:@"OK"
+                                           message:@"Save Success"
+                                          delegate:self
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil];
+    
+    }
+    
+    [alert show];
+}
+
+/*------------------video use----------------------*/
+
++(void)saveVideoToPhotoAlbum:(NSURL*)videoUrl {
+    UISaveVideoAtPathToSavedPhotosAlbum(videoUrl.path, self, @selector(checkSaveVideoResult:withError:withContextInfo:), nil);
+}
+
++(void)checkSaveVideoResult:(NSData*)video withError:(NSError*)error withContextInfo:(void *)contextInfo {
+    
+    UIAlertView *alert;
+    
+    if(error){
+        alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                           message:[error description]
+                                          delegate:self
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil];
+        
+    } else {
+        alert = [[UIAlertView alloc] initWithTitle:@"OK"
+                                           message:@"Save Success"
+                                          delegate:self
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil];
+        
+    }
+    
+    [alert show];
+}
+
+
 @end

@@ -7,12 +7,13 @@
 //
 
 #import "UiTool.h"
+#import "Image.h"
 
 @implementation UiTool
 
-+(UIImageView*)createLoadingImageView {
+-(UIImageView*)createLoadingImageView {
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UiTool getDeviceScreenSize].width, [UiTool getDeviceScreenSize].height)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [self getDeviceScreenSize].width, [self getDeviceScreenSize].height)];
     
     [imageView setBackgroundColor:[UIColor blackColor]];
     
@@ -23,7 +24,7 @@
     return imageView;
 }
 
-+(CGSize)getDeviceScreenSize {
+-(CGSize)getDeviceScreenSize {
 
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     /* 分解動作是這樣：

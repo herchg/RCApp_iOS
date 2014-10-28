@@ -11,12 +11,12 @@
 @interface Json : NSObject
 
 //json encode
-+(NSData*) jsonEncode:(NSDictionary*)data;
+-(NSData*) jsonEncode:(NSDictionary*)data;
 
 //json decode with string
-+(NSDictionary*) jsonDecodeWithString:(NSString*)data;
+-(NSDictionary*) jsonDecodeWithString:(NSString*)data;
 
 //json decode with NSDATA
-+(NSDictionary*) jsonDecodeWithNsdata:(NSData*)data;
+-(NSDictionary*) jsonDecodeWithNsdata:(NSData*)data;
 
 @end
