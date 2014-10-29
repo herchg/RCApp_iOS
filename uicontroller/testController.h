@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CrashReporter/CrashReporter.h>
 
-@interface RootViewController : UIViewController
+@interface testController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 

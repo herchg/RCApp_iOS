@@ -6,18 +6,18 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "testController.h"
 #import "WContext.h"
 #import "UiTool.h"
 #import "Log.h"
 #import "Image.h"
 #import "PhotoAlbumListViewController.h"
 
-@interface RootViewController ()
+@interface testController ()
 
 @end
 
-@implementation RootViewController{
+@implementation testController{
     
     PhotoAlbumListViewController *mListPhoto;
     
