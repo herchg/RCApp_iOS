@@ -63,7 +63,8 @@
     int priceH = itemH - titleH;
     int priceY = titleH;
     mPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,priceY,priceW,priceH)];
-    [mPriceLabel setText:[data objectForKey:@"price"]];
+    NSNumber *price = [data objectForKey:@"price"];
+    [mPriceLabel setText:[NSString stringWithFormat:@"%@",price]];
 
     [self addSubview:mImageView];
     [self addSubview:mPriceLabel];

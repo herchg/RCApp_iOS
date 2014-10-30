@@ -10,11 +10,13 @@
 
 #import <Foundation/Foundation.h>
 #import "RCLogApi.h"
+#import "RCOrderApi.h"
 
 @interface RCApi : NSObject
 
 //send log to server
 -(void)sendLogToServer:(NSDictionary*)data withCallback:(void(^)(NSDictionary* resultData))callbackBlock;
 
+-(void)createNewOrder:(NSDictionary*)data withCallback:(void(^)(NSDictionary* resultData))callbackBlock;
 
 @end

@@ -18,4 +18,11 @@
     [logApi sendLogToServer:data withCallback:callbackBlock];
 }
 
+-(void)createNewOrder:(NSDictionary*)data withCallback:(void(^)(NSDictionary* resultData))callbackBlock {
+    
+    RCOrderApi *orderApi = [[RCOrderApi alloc] init];
+    
+    [orderApi createNewOrder:data withCallback:callbackBlock];
+}
+
 @end

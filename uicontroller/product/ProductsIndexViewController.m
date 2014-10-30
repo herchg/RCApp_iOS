@@ -7,9 +7,7 @@
 //
 
 #import "ProductsIndexViewController.h"
-#import "ProductViewItem.h"
-#import "OrderListViewItem.h"
-#import "Image.h"
+#import "ProductsSettingViewController.h"
 
 @interface ProductsIndexViewController ()
 
@@ -35,9 +33,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self startView];
+    
+    [self setMenuBar];
+}
+
+-(void)setMenuBar {
+    //取得右方menuButton
+    MainMenuView *menuBar = (MainMenuView*)[self.view viewWithTag:100];
+    menuBar.delegate = self;
+    [menuBar setNowButton:1];
+}
+
+-(void)clickMainMenuButtonDelegate:(id)sender {
+ 
+    UIViewController *target = (UIViewController *)sender;
+    
+    if(target != nil){
+        
+        [self presentViewController:target animated:YES completion:nil];
+    }
+
+    
 }
 
 -(void)startView {
+    
     mNowCategory = 0;
     
     int i;
@@ -53,9 +73,11 @@
         
         for (i2 =0; i2 < 53 ; i2++)
         {
-            NSNumber *pid = [NSNumber numberWithInt:i2];
             
-            NSDictionary *product = @{@"id":pid,@"name":[mCategoryArr objectAtIndex:i],@"price":@"399"};
+            
+            NSString *pid = [NSString stringWithFormat:@"%d%d",i,i2];
+            
+            NSDictionary *product = @{@"id":pid,@"title":[mCategoryArr objectAtIndex:i],@"price":[NSNumber numberWithInt:399]};
             
             pArr[i2] = product;
         }
@@ -95,7 +117,9 @@
 
 -(void)resetOrderList {
 
+    mMyOrderList = nil;
     mMyOrderList = [[NSMutableArray alloc] init];
+    [self renewUserOrderList];
 }
 
 -(void)clickCategoryButton:(id)sender {
@@ -114,10 +138,11 @@
     
     int i;
     int startX = 10;
-    int w = 70;
-    int h = 70;
     int limit = 5;
     
+    int w = _productView.frame.size.width / limit;
+    int h = w;
+ 
     int maxY = h * (ceil([pArr count] / limit) + 1);
     
     _productView.contentSize = CGSizeMake(350, maxY);
@@ -144,12 +169,12 @@
                                    @"y":[NSNumber numberWithInt:y],
                                    @"id":[product objectForKey:@"id"],
                                    @"image":[Image getImageFromName:@"p1.jpeg"],
-                                   @"title":[product objectForKey:@"name"],
+                                   @"title":[product objectForKey:@"title"],
                                    @"price":[product objectForKey:@"price"]
                                    };
 
         [pItem setCallbackBlock:^(NSDictionary *sData) {
-            [self clickProductButton:sData];
+            [self clickProductButton:@{@"id":[sData objectForKey:@"id"] , @"title":[sData objectForKey:@"title"] , @"price":[sData objectForKey:@"price"]}];
         }];
         
         [pItem setItem:itemData];
@@ -158,34 +183,150 @@
     }
 }
 
+-(NSMutableDictionary *)checkUserOrderList {
+    
+    NSMutableDictionary *orderDict = [[NSMutableDictionary alloc] init];
+    
+    int i;
+    for(i = 0 ; i < [mMyOrderList count] ; i ++){
+        NSDictionary *sItem = [mMyOrderList objectAtIndex:i];
+        
+        NSString *itemID = [sItem objectForKey:@"id"];
+        NSString *itemTitle = [sItem objectForKey:@"title"];
+        NSNumber *itemPrice = [sItem objectForKey:@"price"];
+        
+        //不重複資料計算
+        int amount;
+        if([orderDict objectForKey:itemID] == nil){
+            amount = 1;
+        }else{
+            NSDictionary *oldItem = [orderDict objectForKey:itemID];
+            amount = [(NSNumber*)[oldItem objectForKey:@"amount"] intValue];
+            amount ++;
+            
+        }
+        NSDictionary *addDict = @{@"id":itemID , @"title":itemTitle , @"price":itemPrice , @"amount":[NSNumber numberWithInt:amount]};
+        [orderDict setObject:addDict forKey:itemID];
+    }
+
+    return orderDict;
+}
+
 -(void)clickProductButton:(NSDictionary*)productData {
     
-    _myOrderView.contentSize = CGSizeMake(150, 800);
-    
-    NSLog(@"productData=%@",productData);
-    
-    OrderListViewItem *orderItem = [[OrderListViewItem alloc] init];
-    
-    NSDictionary *itemData = @{
-                               @"w":[NSNumber numberWithInt:150],
-                               @"h":[NSNumber numberWithInt:50],
-                               @"x":[NSNumber numberWithInt:0],
-                               @"y":[NSNumber numberWithInt:0],
-                               @"id":[productData objectForKey:@"id"],
-                               @"title":[productData objectForKey:@"title"],
-                               @"price":[productData objectForKey:@"price"]
-                               };
-    /*
-    [itemData setCallbackBlock:^(NSDictionary *sData) {
-        
-    }];
-    */
-    [orderItem setItem:itemData];
-    
-    [_myOrderView addSubview:orderItem];
+    //塞入mMyOrderList
+    [mMyOrderList addObject:productData];
+
+    //更新清單
+    [self renewUserOrderList];
 }
 
 
+-(void)renewUserOrderList {
+    //清除_myOrderView
+    [_myOrderView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    //計算清單
+    NSMutableDictionary *orderDict = [self checkUserOrderList];
+
+    //開始顯示在view上
+    int itemW = 150;
+    int itemH = 50;
+    int itemX = 0;
+    int itemY;
+    
+    //view的高
+    int ttlH = itemH * ([orderDict count] + 1);
+    _myOrderView.contentSize = CGSizeMake(itemW, ttlH);
+
+    //統計
+    int ttlAmount = 0;
+    int subTotalMoney = 0;
+    int disCountMoney = 0;
+    
+    //計數器
+    int ct = 0;
+    for (id key in [orderDict keyEnumerator]) {
+        //算出Ｙ以及要多高
+        itemY = itemH * ct;
+        
+        OrderListViewItem *orderItem = [[OrderListViewItem alloc] init];
+        
+        NSDictionary *pItem = [orderDict objectForKey:key];
+        
+        NSDictionary *itemData = @{
+                                   @"w":[NSNumber numberWithInt:itemW],
+                                   @"h":[NSNumber numberWithInt:itemH],
+                                   @"x":[NSNumber numberWithInt:itemX],
+                                   @"y":[NSNumber numberWithInt:itemY],
+                                   @"id":[pItem objectForKey:@"id"],
+                                   @"title":[pItem objectForKey:@"title"],
+                                   @"price":[pItem objectForKey:@"price"],
+                                   @"amount":[pItem objectForKey:@"amount"]
+                                   };
+        
+        [orderItem setCallbackBlock:^(NSDictionary *sData) {
+            [self deleteOrderData:sData];
+        }];
+        
+        [orderItem setItem:itemData];
+        
+        [_myOrderView addSubview:orderItem];
+        
+        //統計
+        ttlAmount += [(NSNumber*)[pItem objectForKey:@"amount"] intValue];
+        
+        subTotalMoney += [(NSNumber*)[pItem objectForKey:@"price"] intValue] * [(NSNumber*)[pItem objectForKey:@"amount"] intValue];
+        
+        ct ++;
+    }
+    
+    //總計
+    int totalMoney = subTotalMoney - disCountMoney;
+    
+    //顯示
+    [self.amountLabel setTextColor:[UIColor blackColor]];
+    [self.amountLabel setText:[NSString stringWithFormat:@"%d",ttlAmount]];
+    
+    [self.subTotalLabel setTextColor:[UIColor blackColor]];
+    [self.subTotalLabel setText:[NSString stringWithFormat:@"%d",subTotalMoney]];
+
+    [self.disCountLabel setTextColor:[UIColor blackColor]];
+    [self.disCountLabel setText:[NSString stringWithFormat:@"%d",disCountMoney]];
+
+    [self.totalMoneyLabel setTextColor:[UIColor blackColor]];
+    [self.totalMoneyLabel setText:[NSString stringWithFormat:@"%d",totalMoney]];
+}
+
+//點擊購物車內的商品進行刪除
+-(void)deleteOrderData:(NSDictionary*)data {
+    
+    NSString *pid = [data objectForKey:@"id"];
+    
+    //查找mMyOrderList內相同的商品 移除
+    int i;
+    for(i = 0 ; i < [mMyOrderList count] ; i ++){
+        NSDictionary *sItem = [mMyOrderList objectAtIndex:i];
+        
+        NSString *itemID = [sItem objectForKey:@"id"];
+       
+        if([pid isEqualToString:itemID]){
+            [mMyOrderList removeObjectAtIndex:i];
+            break;
+        }
+    }
+    
+    //更新清單
+    [self renewUserOrderList];
+}
+
+
+-(BOOL)shouldAutorotate
+{
+    [self renewProductList];
+    
+    return YES;
+}
 
 /*
 #pragma mark - Navigation
@@ -197,4 +338,83 @@
 }
 */
 
+- (IBAction)clickClearButton:(id)sender {
+    [self resetOrderList];
+}
+
+- (IBAction)clickPayButton:(id)sender {
+
+    //建立新訂單
+    NSMutableDictionary *newOrderData = [[NSMutableDictionary alloc] init];
+    int newOrderID = 17;//訂單號
+    
+    //檢查商品資料
+    NSDictionary *orderData = [self checkUserOrderList];
+    
+    NSMutableArray *newOrderDetailArray = [[NSMutableArray alloc] init];
+    
+    int ttlAmount = 0;
+    int subTotalMoney = 0;
+    for (id key in [orderData keyEnumerator]) {
+
+        NSDictionary *pItem = [orderData objectForKey:key];
+        
+        NSNumber *amount = (NSNumber*)[pItem objectForKey:@"amount"];
+        
+        NSNumber *price = (NSNumber*)[pItem objectForKey:@"price"];
+        
+        NSNumber *pid = [NSNumber numberWithInt:[(NSString*)[pItem objectForKey:@"id"] intValue]];
+        
+        //統計
+        ttlAmount += [amount intValue];
+        
+        subTotalMoney += [price intValue] * [amount intValue];
+ 
+        //塞入detail陣列
+        NSDictionary *detailInfo = @{@"order_id":[NSNumber numberWithInt:newOrderID],@"product_id":pid,@"price":price,@"amount":amount,@"total_amount":amount};
+        [newOrderDetailArray addObject:detailInfo];
+        
+    }
+
+    //目前時間
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];\
+    NSString *nowDateTime = [DateFormatter stringFromDate:[NSDate date]];
+    
+    [newOrderData setObject:[NSNumber numberWithInt:newOrderID] forKey:@"order_id"];
+    [newOrderData setObject:[NSNumber numberWithInt:31] forKey:@"customer_id"];
+    [newOrderData setObject:[NSNumber numberWithInt:22] forKey:@"company_id"];
+    [newOrderData setObject:[NSNumber numberWithInt:78] forKey:@"store_id"];
+    [newOrderData setObject:[NSNumber numberWithInt:109] forKey:@"employee_id"];
+    [newOrderData setObject:@"901" forKey:@"ncode"];
+    [newOrderData setObject:[NSNumber numberWithInt:ttlAmount] forKey:@"total_amount"];
+    [newOrderData setObject:nowDateTime forKey:@"order_datetime"];
+    [newOrderData setObject:nowDateTime forKey:@"log_datetime"];
+    [newOrderData setObject:@"A" forKey:@"status"];
+    [newOrderData setObject:[NSNumber numberWithInt:11] forKey:@"pos_order_id"];
+    //塞素商品詳細資料
+    [newOrderData setObject:newOrderDetailArray forKey:@"orderDetail"];
+    
+    
+    DataService *dataService = [WContext getDataServiceClass];
+    
+    [dataService setCallbackBlock:^(NSDictionary *result) {
+        
+        NSString *res = [[NSString alloc] initWithData:[result objectForKey:@"data"] encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"result:%@",res);
+    }];
+    //送出資料
+    [dataService createNewOrder:newOrderData];
+    
+    //清除資料
+    [self clickClearButton:nil];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OK"
+                                                    message:@"付費成功"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 @end

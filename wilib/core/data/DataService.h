@@ -17,6 +17,8 @@
 
 -(void)setCallbackToMainThread:(BOOL)val;
 
+-(void)createNewOrder:(NSDictionary*)data;
+
 -(void)testDataService;
 
 @end

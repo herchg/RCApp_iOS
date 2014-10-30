@@ -72,17 +72,25 @@
 
 +(void)startPost:(id<HttpTask>)task {
     
+
     AFHTTPRequestOperationManager *networkManager = [HttpTaskManager createNetworkManager];
     
+    //request類型設定為ＪＳＯＮ
+    [networkManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    
+    //response 解析器為解析数据NSData
+    [networkManager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    
     [networkManager POST:[task getApiUrl] parameters :[task getApiParams]
-                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    
-                    [HttpTaskManager taskComplite:task withResult:YES withData:responseObject];
-                }
-                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    
-                    [HttpTaskManager taskComplite:task withResult:NO withData:error];
-                }];
+                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                     
+                     NSLog(@"responseObject:%@",responseObject);
+                     [HttpTaskManager taskComplite:task withResult:YES withData:responseObject];
+                 }
+                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     NSLog(@"error:%@",error);
+                     [HttpTaskManager taskComplite:task withResult:NO withData:error];
+                 }];
 }
 
 

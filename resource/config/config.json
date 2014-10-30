@@ -1,5 +1,5 @@
 {
-    "AddOrderApiUrl": "http://60.199.195.25/test.php",
+    "AddOrderApiUrl": "http://192.168.11.140:8080/RCApi/webresources/order/create",
     "SqliteDatabaseName":"rc.db",
     "ShowDebugLog": true,
     "LogFileFolder": "/log",
