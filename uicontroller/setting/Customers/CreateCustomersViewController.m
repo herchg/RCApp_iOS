@@ -1,19 +1,20 @@
 //
-//  ProductsSettingViewController.m
+//  CreateCustomersViewController.m
 //  RCApp_IOS
 //
-//  Created by Samuel on 2014/10/30.
+//  Created by Samuel on 2014/10/31.
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "ProductsSettingViewController.h"
+#import "CreateCustomersViewController.h"
+#import "CustomersSettingViewController.h"
+#import "UiTool.h"
 
-
-@interface ProductsSettingViewController ()
+@interface CreateCustomersViewController ()
 
 @end
 
-@implementation ProductsSettingViewController
+@implementation CreateCustomersViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +33,7 @@
     [self setMenuBar];
 }
 
+
 -(void)setMenuBar {
     //取得右方menuButton
     MainMenuView *menuBar = (MainMenuView*)[self.view viewWithTag:100];
@@ -41,11 +43,8 @@
     //左方MenuBar
     SettingMenuView *settingBar = (SettingMenuView*)[self.view viewWithTag:101];
     settingBar.delegate = self;
-    [settingBar setNowButton:2];
-
+    [settingBar setNowButton:6];
 }
-
-
 
 /*--------------SettingMenuButtonDelegate-----------------*/
 -(void)clickSettingMenuButtonDelegate:(id)sender {
@@ -68,6 +67,7 @@
     }
 }
 
+
 /*
 #pragma mark - Navigation
 
@@ -78,4 +78,16 @@
 }
 */
 
+- (IBAction)clickButtonHandel:(id)sender {
+    
+    //確定
+    if([sender tag] == 10 ){
+    
+    }else{
+        //取消
+        UIViewController *targerController = [[UiTool new] getUiViewControllerByStoryboardId:@"CustomersSettingViewController"];
+        
+        [self presentViewController:targerController animated:YES completion:nil];
+    }
+}
 @end

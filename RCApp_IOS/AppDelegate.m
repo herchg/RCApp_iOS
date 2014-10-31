@@ -16,7 +16,35 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
+    
+    /*
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController *targerController;
+    //判断是不是第一次启动应用
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        
+        NSLog(@"第一次启动");
+        
+        targerController = [storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+    }else{
+        
+        NSLog(@"不是第一次启动");
+        
+        targerController = [storyboard instantiateViewControllerWithIdentifier:@"AMLoginViewController"];
+    }
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [self.window setRootViewController:targerController];
+    
+    [self.window makeKeyAndVisible];
+    */
+    
     return YES;
 }
 

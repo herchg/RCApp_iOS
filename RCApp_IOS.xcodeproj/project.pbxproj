@@ -53,6 +53,8 @@
 		7E804F5C1A02160A00591337 /* CachierSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E804F5B1A02160A00591337 /* CachierSettingViewController.m */; };
 		7E804F5F1A021A5B00591337 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E804F5E1A021A5B00591337 /* MainMenuView.m */; };
 		7E804F621A02342300591337 /* SettingMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E804F611A02342300591337 /* SettingMenuView.m */; };
+		7E9356991A03646400B03EAE /* CreateCustomersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9356981A03646400B03EAE /* CreateCustomersViewController.m */; };
+		7E93569C1A036F1B00B03EAE /* CreateEmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E93569B1A036F1B00B03EAE /* CreateEmployeeViewController.m */; };
 		7E964BB619ED22A3009FC8C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E964BB519ED22A3009FC8C9 /* main.m */; };
 		7E964BB919ED22A3009FC8C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E964BB819ED22A3009FC8C9 /* AppDelegate.m */; };
 		7E964BBC19ED22A3009FC8C9 /* RCApp_IOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E964BBA19ED22A3009FC8C9 /* RCApp_IOS.xcdatamodeld */; };
@@ -200,6 +202,10 @@
 		7E804F5E1A021A5B00591337 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
 		7E804F601A02342300591337 /* SettingMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingMenuView.h; sourceTree = "<group>"; };
 		7E804F611A02342300591337 /* SettingMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingMenuView.m; sourceTree = "<group>"; };
+		7E9356971A03646400B03EAE /* CreateCustomersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCustomersViewController.h; sourceTree = "<group>"; };
+		7E9356981A03646400B03EAE /* CreateCustomersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCustomersViewController.m; sourceTree = "<group>"; };
+		7E93569A1A036F1A00B03EAE /* CreateEmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEmployeeViewController.h; sourceTree = "<group>"; };
+		7E93569B1A036F1B00B03EAE /* CreateEmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEmployeeViewController.m; sourceTree = "<group>"; };
 		7E964BB019ED22A3009FC8C9 /* RCApp_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCApp_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E964BB419ED22A3009FC8C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E964BB519ED22A3009FC8C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -599,6 +605,8 @@
 			children = (
 				7E804F491A0215DA00591337 /* CustomersSettingViewController.h */,
 				7E804F4A1A0215DA00591337 /* CustomersSettingViewController.m */,
+				7E9356971A03646400B03EAE /* CreateCustomersViewController.h */,
+				7E9356981A03646400B03EAE /* CreateCustomersViewController.m */,
 			);
 			path = Customers;
 			sourceTree = "<group>";
@@ -608,6 +616,8 @@
 			children = (
 				7E804F4C1A0215DA00591337 /* EmployeeSettingViewController.h */,
 				7E804F4D1A0215DA00591337 /* EmployeeSettingViewController.m */,
+				7E93569A1A036F1A00B03EAE /* CreateEmployeeViewController.h */,
+				7E93569B1A036F1B00B03EAE /* CreateEmployeeViewController.m */,
 			);
 			path = Employee;
 			sourceTree = "<group>";
@@ -672,8 +682,8 @@
 				7E1BBC1D19EE417200184499 /* lib */,
 				7E1BBC5A19EE417200184499 /* wilib */,
 				7E1BBC5719EE417200184499 /* uicontroller */,
-				7E964BB819ED22A3009FC8C9 /* AppDelegate.m */,
 				7E964BB719ED22A3009FC8C9 /* AppDelegate.h */,
+				7E964BB819ED22A3009FC8C9 /* AppDelegate.m */,
 				7E964BC019ED22A3009FC8C9 /* Main.storyboard */,
 				7E964BC319ED22A3009FC8C9 /* Images.xcassets */,
 				7E964BC519ED22A3009FC8C9 /* LaunchScreen.xib */,
@@ -932,6 +942,7 @@
 				7E964BB919ED22A3009FC8C9 /* AppDelegate.m in Sources */,
 				7EFCACA919FF9AE500284FD1 /* OrderListViewItem.m in Sources */,
 				7E0FFF5B19F8A2DA007F322A /* CacheManager.m in Sources */,
+				7E93569C1A036F1B00B03EAE /* CreateEmployeeViewController.m in Sources */,
 				7E1BBC7D19EE417200184499 /* FMDatabase.m in Sources */,
 				7E804F571A0215DA00591337 /* ProductsSettingViewController.m in Sources */,
 				7EEEEEBE19F907760033255D /* RCLogApi.m in Sources */,
@@ -982,6 +993,7 @@
 				7E964BBC19ED22A3009FC8C9 /* RCApp_IOS.xcdatamodeld in Sources */,
 				7E804F551A0215DA00591337 /* CustomersSettingViewController.m in Sources */,
 				7E1BBC7E19EE417200184499 /* FMDatabaseAdditions.m in Sources */,
+				7E9356991A03646400B03EAE /* CreateCustomersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

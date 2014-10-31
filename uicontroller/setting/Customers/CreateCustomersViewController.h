@@ -1,8 +1,8 @@
 //
-//  StoreSettingViewController.h
+//  CreateCustomersViewController.h
 //  RCApp_IOS
 //
-//  Created by Samuel on 2014/10/30.
+//  Created by Samuel on 2014/10/31.
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "MainMenuView.h"
 #import "SettingMenuView.h"
 
-@interface StoreSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate>
+@interface CreateCustomersViewController : UIViewController <MainMenuViewDelegate,SettingMenuViewDelegate>
 
 - (IBAction)clickButtonHandel:(id)sender;
 @end

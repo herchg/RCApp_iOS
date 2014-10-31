@@ -38,4 +38,13 @@
     return screenSize;
 }
 
+-(UIViewController*)getUiViewControllerByStoryboardId:(NSString*)sid {
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    UIViewController *targerController = [storyboard instantiateViewControllerWithIdentifier:sid];
+    
+    return targerController;
+}
+
 @end

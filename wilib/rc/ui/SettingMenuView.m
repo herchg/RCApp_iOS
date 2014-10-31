@@ -53,19 +53,19 @@
                 break;
                 //員工設定
             case 3:
-                targetViewController = nil;
+                targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"EmployeeSettingViewController"];
                 break;
                 //機台設定
             case 4:
-                targetViewController = nil;
+                targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"CachierSettingViewController"];
                 break;
                 //門店設定
             case 5:
-                targetViewController = nil;
+                targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"StoreSettingViewController"];
                 break;
                 //會員設定
             case 6:
-                targetViewController = nil;
+                targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"CustomersSettingViewController"];
                 break;
             default:
                 targetViewController = nil;

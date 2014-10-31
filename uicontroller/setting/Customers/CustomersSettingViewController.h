@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainMenuView.h"
+#import "SettingMenuView.h"
 
-@interface CustomersSettingViewController : UIViewController
+@interface CustomersSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate,UITableViewDelegate,UITableViewDataSource>
+
+- (IBAction)clickAddButtonHandel:(id)sender;
 
 @end

@@ -32,29 +32,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:animated];
+    
     [self startView];
     
     [self setMenuBar];
 }
 
--(void)setMenuBar {
-    //取得右方menuButton
-    MainMenuView *menuBar = (MainMenuView*)[self.view viewWithTag:100];
-    menuBar.delegate = self;
-    [menuBar setNowButton:1];
-}
-
--(void)clickMainMenuButtonDelegate:(id)sender {
- 
-    UIViewController *target = (UIViewController *)sender;
-    
-    if(target != nil){
-        
-        [self presentViewController:target animated:YES completion:nil];
-    }
-
-    
-}
 
 -(void)startView {
     
@@ -416,5 +405,24 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+
+-(void)setMenuBar {
+    //取得右方menuButton
+    MainMenuView *menuBar = (MainMenuView*)[self.view viewWithTag:100];
+    menuBar.delegate = self;
+    [menuBar setNowButton:1];
+}
+
+/*--------------------實作MainMenuView-------------------------------*/
+-(void)clickMainMenuButtonDelegate:(id)sender {
+    
+    UIViewController *target = (UIViewController *)sender;
+    
+    if(target != nil){
+        
+        [self presentViewController:target animated:YES completion:nil];
+    }
 }
 @end

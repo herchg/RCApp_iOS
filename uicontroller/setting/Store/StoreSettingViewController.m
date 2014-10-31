@@ -7,6 +7,7 @@
 //
 
 #import "StoreSettingViewController.h"
+#import "UiTool.h"
 
 @interface StoreSettingViewController ()
 
@@ -17,12 +18,57 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    [self setMenuBar];
+}
+
+-(void)setMenuBar {
+    //取得右方menuButton
+    MainMenuView *menuBar = (MainMenuView*)[self.view viewWithTag:100];
+    menuBar.delegate = self;
+    [menuBar setNowButton:4];
+    
+    //左方MenuBar
+    SettingMenuView *settingBar = (SettingMenuView*)[self.view viewWithTag:101];
+    settingBar.delegate = self;
+    [settingBar setNowButton:5];
+    
+}
+
+
+
+/*--------------SettingMenuButtonDelegate-----------------*/
+-(void)clickSettingMenuButtonDelegate:(id)sender {
+    
+    UIViewController *target = (UIViewController *)sender;
+    
+    if(target != nil){
+        [self presentViewController:target animated:YES completion:nil];
+    }
+}
+
+
+/*--------------MainMenuButtonDelegate-----------------*/
+-(void)clickMainMenuButtonDelegate:(id)sender {
+    
+    UIViewController *target = (UIViewController *)sender;
+    
+    if(target != nil){
+        [self presentViewController:target animated:YES completion:nil];
+    }
+}
+
 
 /*
 #pragma mark - Navigation
@@ -34,4 +80,7 @@
 }
 */
 
+- (IBAction)clickButtonHandel:(id)sender {
+
+}
 @end

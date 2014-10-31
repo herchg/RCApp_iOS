@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainMenuView.h"
+#import "SettingMenuView.h"
 
-@interface CachierSettingViewController : UIViewController
+@interface CachierSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate>
 
 @end

@@ -7,22 +7,109 @@
 //
 
 #import "CustomersSettingViewController.h"
+#import "Image.h"
+#import "CreateCustomersViewController.h"
+#import "UiTool.h"
+
 
 @interface CustomersSettingViewController ()
 
 @end
 
-@implementation CustomersSettingViewController
+@implementation CustomersSettingViewController {
+
+    NSMutableArray *mCustomersList;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    mCustomersList = [[NSMutableArray alloc] init];
+    [mCustomersList addObject:@"Lucas Lee"];
+    [mCustomersList addObject:@"Arthur Hu"];
+    [mCustomersList addObject:@"Alvin"];
+    [mCustomersList addObject:@"Samuel"];
+    [mCustomersList addObject:@"Simon"];
+    [mCustomersList addObject:@"Eric"];
+    [mCustomersList addObject:@"Lopsa"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    [self setMenuBar];
+}
+
+
+-(void)setMenuBar {
+    //取得右方menuButton
+    MainMenuView *menuBar = (MainMenuView*)[self.view viewWithTag:100];
+    menuBar.delegate = self;
+    [menuBar setNowButton:4];
+    
+    //左方MenuBar
+    SettingMenuView *settingBar = (SettingMenuView*)[self.view viewWithTag:101];
+    settingBar.delegate = self;
+    [settingBar setNowButton:6];
+}
+
+/*--------------UITableViewDelegate,UITableViewDataSource-----------------*/
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [mCustomersList count];
+}
+
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableSampleIdentifier];
+    }
+    
+    cell.textLabel.text = [mCustomersList objectAtIndex:[indexPath row]];
+    cell.imageView.image = [Image getImageFromName:@"p1.jpeg"];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSLog(@"indexPath:%@",indexPath);
+}
+
+
+/*--------------SettingMenuButtonDelegate-----------------*/
+-(void)clickSettingMenuButtonDelegate:(id)sender {
+    
+    UIViewController *target = (UIViewController *)sender;
+    
+    if(target != nil){
+        [self presentViewController:target animated:YES completion:nil];
+    }
+}
+
+
+/*--------------MainMenuButtonDelegate-----------------*/
+-(void)clickMainMenuButtonDelegate:(id)sender {
+    
+    UIViewController *target = (UIViewController *)sender;
+    
+    if(target != nil){
+        [self presentViewController:target animated:YES completion:nil];
+    }
+}
+
 
 /*
 #pragma mark - Navigation
@@ -34,4 +121,10 @@
 }
 */
 
+- (IBAction)clickAddButtonHandel:(id)sender {
+    
+    UIViewController *targerController = [[UiTool new] getUiViewControllerByStoryboardId:@"CreateCustomersViewController"];
+    
+    [self presentViewController:targerController animated:YES completion:nil];
+}
 @end

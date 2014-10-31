@@ -17,4 +17,6 @@
 //取得目前裝置的size
 -(CGSize)getDeviceScreenSize;
 
+-(UIViewController*)getUiViewControllerByStoryboardId:(NSString*)sid;
+
 @end
