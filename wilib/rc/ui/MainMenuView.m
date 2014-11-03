@@ -47,6 +47,14 @@
             case 1:
                 targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProductsIndexViewController"];
                 break;
+                //查詢
+            case 2:
+                targetViewController = nil;
+                break;
+                //上下班
+            case 3:
+                targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"EmployeeWorkViewController"];
+                break;
             //設定
             case 4:
                 targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"CategoriesSettingViewController"];

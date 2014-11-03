@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "PhotoAlbumListViewController.h"
+#import "PhotoAlbumClass.h"
 
-@implementation PhotoAlbumListViewController {
+@implementation PhotoAlbumClass {
     //外部設定的callback block
     void (^mCallbackBlock)(NSDictionary* resultData);
 }

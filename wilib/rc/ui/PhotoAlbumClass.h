@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface PhotoAlbumListViewController : NSObject<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface PhotoAlbumClass : NSObject<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 -(UIViewController*)createPhotoAlbumViewController;
 

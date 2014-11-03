@@ -11,7 +11,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController : NSObject<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface CameraClass : NSObject<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 -(UIViewController*)createCameraViewController;
 

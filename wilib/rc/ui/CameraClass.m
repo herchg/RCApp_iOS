@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "CameraViewController.h"
+#import "CameraClass.h"
 
-@implementation CameraViewController {
+@implementation CameraClass {
     //外部設定的callback block
     void (^mCallbackBlock)(NSDictionary* resultData);
 }
@@ -50,35 +50,38 @@
     
     NSDictionary *data;
     
-    //影片
-    if([mediaType isEqualToString:@"public.movie"]){
-    
-        NSURL *videoUrl = [info objectForKey:UIImagePickerControllerMediaURL];
-        
-        NSData *videoData = [NSData dataWithContentsOfURL:videoUrl];
-        
-        //截取影片的示意圖
-        AVURLAsset *asset=[[AVURLAsset alloc] initWithURL:videoUrl options:nil];
-        
-        AVAssetImageGenerator *generateImg = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-        
-        NSError *error = NULL;
-        
-        CMTime time = CMTimeMake(1, 65);
-        
-        CGImageRef refImg = [generateImg copyCGImageAtTime:time actualTime:NULL error:&error];
-        
-        UIImage *videoImage = [[UIImage alloc] initWithCGImage:refImg];
-        
-        //塞入data
-        data = @{@"videoUrl":videoUrl , @"videoData":videoData , @"videoImage":videoImage};
-        
-    }else if([mediaType isEqualToString:@"public.image"]){
-        //圖片
-        UIImage *photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        
-        data = @{@"photo":photoImage};
+    if(info != nil){
+        //影片
+        if([mediaType isEqualToString:@"public.movie"]){
+            
+            NSURL *videoUrl = [info objectForKey:UIImagePickerControllerMediaURL];
+            
+            NSData *videoData = [NSData dataWithContentsOfURL:videoUrl];
+            
+            //截取影片的示意圖
+            AVURLAsset *asset=[[AVURLAsset alloc] initWithURL:videoUrl options:nil];
+            
+            AVAssetImageGenerator *generateImg = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+            
+            NSError *error = NULL;
+            
+            CMTime time = CMTimeMake(1, 65);
+            
+            CGImageRef refImg = [generateImg copyCGImageAtTime:time actualTime:NULL error:&error];
+            
+            UIImage *videoImage = [[UIImage alloc] initWithCGImage:refImg];
+            
+            //塞入data
+            data = @{@"videoUrl":videoUrl , @"videoData":videoData , @"videoImage":videoImage};
+            
+        }else if([mediaType isEqualToString:@"public.image"]){
+            //圖片
+            UIImage *photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+            
+            data = @{@"photo":photoImage};
+        }
     }
+    
     
     if(mCallbackBlock){
         

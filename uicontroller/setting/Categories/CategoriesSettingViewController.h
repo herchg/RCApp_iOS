@@ -10,6 +10,11 @@
 #import "MainMenuView.h"
 #import "SettingMenuView.h"
 
-@interface CategoriesSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate>
+@interface CategoriesSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate,UITableViewDelegate,UITableViewDataSource>
+
+
+@property (strong, nonatomic) IBOutlet UITableView *CategoriesTavleView;
+
+- (IBAction)clickButtonHandel:(id)sender;
 
 @end

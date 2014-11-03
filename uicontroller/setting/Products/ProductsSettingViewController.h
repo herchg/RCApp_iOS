@@ -10,6 +10,12 @@
 #import "MainMenuView.h"
 #import "SettingMenuView.h"
 
-@interface ProductsSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate>
+@interface ProductsSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
+
+- (IBAction)clickButtonHandel:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UITextField *ProductCategoriesTextField;
+
+@property (strong, nonatomic) IBOutlet UITableView *ProductsListView;
 
 @end

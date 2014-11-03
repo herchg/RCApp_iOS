@@ -11,7 +11,7 @@
 #import "UiTool.h"
 #import "Log.h"
 #import "Image.h"
-#import "PhotoAlbumListViewController.h"
+#import "PhotoAlbumClass.h"
 
 @interface testController ()
 
@@ -19,7 +19,7 @@
 
 @implementation testController{
     
-    PhotoAlbumListViewController *mListPhoto;
+    PhotoAlbumClass *mListPhoto;
     
 }
 
@@ -85,7 +85,7 @@
     [Log loggerMessage:@"clickBtn2"];
     
     if(mListPhoto == nil){
-        mListPhoto = [[PhotoAlbumListViewController alloc] init];
+        mListPhoto = [[PhotoAlbumClass alloc] init];
     }
     
     [mListPhoto setCallbackBlock:^(NSDictionary *data) {

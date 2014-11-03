@@ -12,6 +12,8 @@
 
 @interface CustomersSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UITableView *CustomerListView;
+
 - (IBAction)clickAddButtonHandel:(id)sender;
 
 @end

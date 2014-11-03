@@ -12,6 +12,8 @@
 
 @interface EmployeeSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UITableView *EmployeeListView;
+
 - (IBAction)clickButtonHandel:(id)sender;
 
 @end

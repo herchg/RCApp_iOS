@@ -10,6 +10,7 @@
 #import "MainMenuView.h"
 #import "SettingMenuView.h"
 
-@interface CachierSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate>
+@interface CachierSettingViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UITableView *CachierListView;
 @end

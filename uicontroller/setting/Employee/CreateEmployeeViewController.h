@@ -12,6 +12,8 @@
 
 @interface CreateEmployeeViewController : UIViewController<MainMenuViewDelegate,SettingMenuViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UIImageView *userPhotoImage;
+
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 
 @property (strong, nonatomic) IBOutlet UITextField *identifyCodeTextField;
@@ -21,8 +23,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *onBoardDateTextField;
 
 @property (strong, nonatomic) IBOutlet UITextField *employeeTypeTextField;
-
-@property (strong, nonatomic) IBOutlet UITextField *sexTextField;
 
 - (IBAction)textFieldDidEndOnExit:(id)sender;
 

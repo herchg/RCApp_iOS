@@ -8,6 +8,8 @@
 
 #import "CreateEmployeeViewController.h"
 #import "UiTool.h"
+#import "PhotoAlbumClass.h"
+#import "CameraClass.h"
 
 @interface CreateEmployeeViewController ()
 
@@ -15,6 +17,12 @@
 
 @implementation CreateEmployeeViewController {
 
+    //照相機Class
+    CameraClass *mCameraClass;
+    
+    //相本class
+    PhotoAlbumClass *mPhotoAlbum;
+    
     //選擇日期用
     UIDatePicker *mDatePicker;
     NSLocale *mDatelocale;
@@ -185,15 +193,76 @@
 }
 
 - (IBAction)clickButtonHandel:(id)sender {
-    //確定
-    if([sender tag] == 10 ){
-        
-    }else{
+
+    switch ([sender tag]) {
+        //確定
+        case 10:
+            
+            break;
         //取消
-        UIViewController *targerController = [[UiTool new] getUiViewControllerByStoryboardId:@"EmployeeSettingViewController"];
-        
-        [self presentViewController:targerController animated:YES completion:nil];
+        case 11:
+            [self goToEmploySetting];
+            
+            break;
+        //照相
+        case 20:
+            [self goToCameraController];
+            break;
+        //相簿
+        case 21:
+            [self goToPhotoAlbum];
+            break;
+        default:
+            break;
     }
+}
+
+-(void)goToEmploySetting {
+    UIViewController *targerController = [[UiTool new] getUiViewControllerByStoryboardId:@"EmployeeSettingViewController"];
+    [self presentViewController:targerController animated:YES completion:nil];
+}
+
+-(void)goToCameraController {
+    if(mCameraClass == nil){
+        mCameraClass = [[CameraClass alloc] init];
+    }
+    
+    
+    __weak UIImageView *tmpView = self.userPhotoImage;
+    
+    [mCameraClass setCallbackBlock:^(NSDictionary *data) {
+
+        UIImage *img = [data objectForKey:@"photo"];
+        
+        if(img != nil){
+            [tmpView setImage:img];
+        }
+    }];
+    
+    UIViewController *targerController = [mCameraClass createCameraViewController];
+    
+    [self presentViewController:targerController animated:YES completion:nil];
+}
+
+-(void)goToPhotoAlbum {
+    if(mPhotoAlbum == nil){
+        mPhotoAlbum = [[PhotoAlbumClass alloc] init];
+    }
+
+    __weak UIImageView *tmpView = self.userPhotoImage;
+    
+    [mPhotoAlbum setCallbackBlock:^(NSDictionary *data) {
+        
+        UIImage *img = [data objectForKey:@"image"];
+        
+        if(img != nil){
+            [tmpView setImage:img];
+        }
+    }];
+    
+    UIViewController *targerController = [mPhotoAlbum createPhotoAlbumViewController];
+    
+    [self presentViewController:targerController animated:YES completion:nil];
 }
 
 
