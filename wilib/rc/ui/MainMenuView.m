@@ -45,7 +45,7 @@
         switch (tag) {
             //結賬
             case 1:
-                targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProductsIndexViewController"];
+                targetViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserOrderViewController"];
                 break;
                 //查詢
             case 2:

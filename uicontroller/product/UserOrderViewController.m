@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 T3RetailCloud. All rights reserved.
 //
 
-#import "ProductsIndexViewController.h"
+#import "UserOrderViewController.h"
 #import "ProductsSettingViewController.h"
 
-@interface ProductsIndexViewController ()
+@interface UserOrderViewController ()
 
 @end
 
-@implementation ProductsIndexViewController{
+@implementation UserOrderViewController{
 
     NSArray *mCategoryArr;
     
@@ -332,7 +332,10 @@
 }
 
 - (IBAction)clickPayButton:(id)sender {
-
+    
+    //跳轉到收銀付費頁面
+    NSLog(@"跳轉到收銀付費頁面");
+    /*
     //建立新訂單
     NSMutableDictionary *newOrderData = [[NSMutableDictionary alloc] init];
     int newOrderID = 17;//訂單號
@@ -405,6 +408,7 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    */
 }
 
 

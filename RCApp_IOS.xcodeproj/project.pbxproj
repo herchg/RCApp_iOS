@@ -47,6 +47,7 @@
 		7E1BBC9819EE419500184499 /* GlobalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1BBC9719EE419500184499 /* GlobalContext.m */; };
 		7E1EA3A41A071A7900B19BB3 /* EmployeeWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EA3A31A071A7900B19BB3 /* EmployeeWorkViewController.m */; };
 		7E1EA3A71A07485900B19BB3 /* EmployeeInputPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EA3A61A07485900B19BB3 /* EmployeeInputPasswordViewController.m */; };
+		7E1EA3AA1A075B2300B19BB3 /* PayUserOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EA3A91A075B2300B19BB3 /* PayUserOrderViewController.m */; };
 		7E629FB719F9EB68007DE6DC /* WContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E629FB619F9EB68007DE6DC /* WContext.m */; };
 		7E804F541A0215DA00591337 /* CategoriesSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E804F471A0215DA00591337 /* CategoriesSettingViewController.m */; };
 		7E804F551A0215DA00591337 /* CustomersSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E804F4A1A0215DA00591337 /* CustomersSettingViewController.m */; };
@@ -98,7 +99,7 @@
 		7EEEEEB619F8F0510033255D /* ApiTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEEEEB519F8F0510033255D /* ApiTask.m */; };
 		7EEEEEBE19F907760033255D /* RCLogApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEEEEBD19F907760033255D /* RCLogApi.m */; };
 		7EFCAC9D19FF4D2500284FD1 /* AMAdditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFCAC9C19FF4D2500284FD1 /* AMAdditionViewController.m */; };
-		7EFCACA019FF4ECB00284FD1 /* ProductsIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFCAC9F19FF4ECB00284FD1 /* ProductsIndexViewController.m */; };
+		7EFCACA019FF4ECB00284FD1 /* UserOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFCAC9F19FF4ECB00284FD1 /* UserOrderViewController.m */; };
 		7EFCACA319FF4F2C00284FD1 /* AMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFCACA219FF4F2C00284FD1 /* AMLoginViewController.m */; };
 		7EFCACA619FF8E2800284FD1 /* ProductViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFCACA519FF8E2800284FD1 /* ProductViewItem.m */; };
 		7EFCACA919FF9AE500284FD1 /* OrderListViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFCACA819FF9AE500284FD1 /* OrderListViewItem.m */; };
@@ -194,6 +195,8 @@
 		7E1EA3A31A071A7900B19BB3 /* EmployeeWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeWorkViewController.m; sourceTree = "<group>"; };
 		7E1EA3A51A07485900B19BB3 /* EmployeeInputPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeInputPasswordViewController.h; sourceTree = "<group>"; };
 		7E1EA3A61A07485900B19BB3 /* EmployeeInputPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeInputPasswordViewController.m; sourceTree = "<group>"; };
+		7E1EA3A81A075B2300B19BB3 /* PayUserOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUserOrderViewController.h; sourceTree = "<group>"; };
+		7E1EA3A91A075B2300B19BB3 /* PayUserOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUserOrderViewController.m; sourceTree = "<group>"; };
 		7E629FB519F9EB68007DE6DC /* WContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WContext.h; sourceTree = "<group>"; };
 		7E629FB619F9EB68007DE6DC /* WContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WContext.m; sourceTree = "<group>"; };
 		7E804F461A0215DA00591337 /* CategoriesSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesSettingViewController.h; sourceTree = "<group>"; };
@@ -272,8 +275,8 @@
 		7EEEEEBD19F907760033255D /* RCLogApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLogApi.m; sourceTree = "<group>"; };
 		7EFCAC9B19FF4D2500284FD1 /* AMAdditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAdditionViewController.h; sourceTree = "<group>"; };
 		7EFCAC9C19FF4D2500284FD1 /* AMAdditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAdditionViewController.m; sourceTree = "<group>"; };
-		7EFCAC9E19FF4ECB00284FD1 /* ProductsIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsIndexViewController.h; sourceTree = "<group>"; };
-		7EFCAC9F19FF4ECB00284FD1 /* ProductsIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsIndexViewController.m; sourceTree = "<group>"; };
+		7EFCAC9E19FF4ECB00284FD1 /* UserOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOrderViewController.h; sourceTree = "<group>"; };
+		7EFCAC9F19FF4ECB00284FD1 /* UserOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOrderViewController.m; sourceTree = "<group>"; };
 		7EFCACA119FF4F2C00284FD1 /* AMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLoginViewController.h; sourceTree = "<group>"; };
 		7EFCACA219FF4F2C00284FD1 /* AMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLoginViewController.m; sourceTree = "<group>"; };
 		7EFCACA419FF8E2800284FD1 /* ProductViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewItem.h; sourceTree = "<group>"; };
@@ -782,12 +785,14 @@
 		7EB780BB19FF35BE00483420 /* product */ = {
 			isa = PBXGroup;
 			children = (
-				7EFCAC9E19FF4ECB00284FD1 /* ProductsIndexViewController.h */,
-				7EFCAC9F19FF4ECB00284FD1 /* ProductsIndexViewController.m */,
+				7EFCAC9E19FF4ECB00284FD1 /* UserOrderViewController.h */,
+				7EFCAC9F19FF4ECB00284FD1 /* UserOrderViewController.m */,
 				7EFCACA419FF8E2800284FD1 /* ProductViewItem.h */,
 				7EFCACA519FF8E2800284FD1 /* ProductViewItem.m */,
 				7EFCACA719FF9AE500284FD1 /* OrderListViewItem.h */,
 				7EFCACA819FF9AE500284FD1 /* OrderListViewItem.m */,
+				7E1EA3A81A075B2300B19BB3 /* PayUserOrderViewController.h */,
+				7E1EA3A91A075B2300B19BB3 /* PayUserOrderViewController.m */,
 			);
 			path = product;
 			sourceTree = "<group>";
@@ -989,6 +994,7 @@
 				7E804F581A0215DA00591337 /* StoreSettingViewController.m in Sources */,
 				7E1BBC9119EE417200184499 /* FileManage.m in Sources */,
 				7ECA89CA19F74D3C007418BF /* DataService.m in Sources */,
+				7E1EA3AA1A075B2300B19BB3 /* PayUserOrderViewController.m in Sources */,
 				7E629FB719F9EB68007DE6DC /* WContext.m in Sources */,
 				7ECA89CE19F77CED007418BF /* ImageLoder.m in Sources */,
 				7E1BBC8119EE417200184499 /* FMResultSet.m in Sources */,
@@ -1006,7 +1012,7 @@
 				7E1BBC7519EE417200184499 /* AFHTTPSessionManager.m in Sources */,
 				7E1BBC7919EE417200184499 /* AFURLRequestSerialization.m in Sources */,
 				7EA8FD291A00FA160081C585 /* RCOrderApi.m in Sources */,
-				7EFCACA019FF4ECB00284FD1 /* ProductsIndexViewController.m in Sources */,
+				7EFCACA019FF4ECB00284FD1 /* UserOrderViewController.m in Sources */,
 				7E804F5C1A02160A00591337 /* CachierSettingViewController.m in Sources */,
 				7E804F541A0215DA00591337 /* CategoriesSettingViewController.m in Sources */,
 				7EFD976A1A05BCEF008B658F /* CreateCategoriesViewController.m in Sources */,

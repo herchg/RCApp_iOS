@@ -13,7 +13,7 @@
 #import "WContext.h"
 #import "MainMenuView.h"
 
-@interface ProductsIndexViewController : UIViewController <MainMenuViewDelegate>
+@interface UserOrderViewController : UIViewController <MainMenuViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *categoryView;
 
